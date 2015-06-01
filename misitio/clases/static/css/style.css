@@ -1,0 +1,20 @@
+
+#flotante {
+    overflow: hidden;
+}
+
+#flotante .izquierdad, #flotante .espacio, #flotante .grilla{  /*hijos*/
+	float: left;
+}
+
+.izquierdad {height: 15em;width: 30em;}
+.grilla{height: 1em;width: 34em;}
+.izquierda {float:left;width: 45%;clear: left;padding:0}
+.derecha {float:right;width: 45%;clear: right;padding:0}
+.espacio{height: 5em;width: 2em}
+.bajarq{ margin-top:10px;}
+.bajar{}
+
+
+
+
