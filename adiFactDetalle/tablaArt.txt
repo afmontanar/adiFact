@@ -1,0 +1,73 @@
+   CASE pFijo=="INV"                          // ARTICULOS DE INVENTARIOS
+        AADD(aStruc,{"codcodin",'C',12,0})    //[01] CODIGO INTERNO DEL ARTICULO
+        AADD(aStruc,{"tpccodin",'C', 1,0})    //[02] TIPO DE CODIGO
+        AADD(aStruc,{"descodin",'C',40,0})    //[03] NOMBRE O DESCRIPCION DEL ARTICULO
+        AADD(aStruc,{"refcodin",'C',20,0})    //[04] REFERENCIA
+        AADD(aStruc,{"ctacodin",'C',20,0})    //[05] CODIGO POS O CODIGO DE BARRA
+        AADD(aStruc,{"dpvtamin",'C',20,0})    //[06] DESCRIPCION CORTA DEL ARTICULO
+        AADD(aStruc,{"lincodin",'C',10,0})    //[07] LINEA
+        AADD(aStruc,{"locacodi",'C',10,0})    //[08] LOCALIZACION
+        AADD(aStruc,{"gaccodin",'N', 4,0})    //[09] GARANTIA
+        AADD(aStruc,{"empcodin",'C', 5,0})    //[10] EMPAQUE
+        AADD(aStruc,{"uempcodi",'N',10,2})    //[11] UNIDADES POR EMPAQUE
+        AADD(aStruc,{"umecodin",'C', 5,0})    //[12] UNIDAD DE MEDIDA
+        AADD(aStruc,{"ptorcodi",'N',10,0})    //[13] PUNTO DE REORDEN
+        AADD(aStruc,{"tporcodi",'N', 4,0})    //[14] TIEMPO DE REPOSION EN DIAS
+        AADD(aStruc,{"emicodin",'N', 7,0})    //[15] EXISTENCIA MINIMA
+        AADD(aStruc,{"emacodin",'N', 7,0})    //[16] EXISTENCIA MAXIMA
+        AADD(aStruc,{"estacodi",'C', 1,0})    //[17] ESTADO - [N]ORMAL [D]ESCONTINUADO [P]ROMOCION [O]BSEQUIO
+        AADD(aStruc,{"e_a_codi",'C', 1,0})    //[18] TIPO DE PRODUCTO [N]ormal [F]Fracción [C]Compuesto
+        AADD(aStruc,{"divacodi",'C', 1,0})    //[19] DISCRIMINO IMPO VENTAS [S/N]
+        AADD(aStruc,{"desacodi",'C', 1,0})    //[20] DESCRIPCION AMPLIADA [S/N]
+        AADD(aStruc,{"gvecodin",'N', 4,0})    //[21] GARANTIA DE VENTAS EN DIAS
+        AADD(aStruc,{"pskginve",'N', 8,2})    //[22] PESO EN KG
+        AADD(aStruc,{"dtocodin",'N', 6,2})    //[23] % DTO
+        AADD(aStruc,{"vlipocon",'N',10,2})    //[24] VALOR IMPOCONSUMO
+        AADD(aStruc,{"vivacoin",'N',10,2})    //[25] VALOR UNITARIO DEL IVA
+        AADD(aStruc,{"ivacodin",'N', 5,2})    //[26] % IVA
+        AADD(aStruc,{"ulccodin",'N',12,2})    //[27] ULTIMO COSTO
+        AADD(aStruc,{"cprcodin",'N',12,2})    //[28] COSTO PROMEDIO
+        AADD(aStruc,{"pvecodin",'N',12,2})    //[29] PRECIO DE VENTA A
+        AADD(aStruc,{"promocod",'N',12,2})    //[30] PRECIO DE VENTA B
+        AADD(aStruc,{"ppublcod",'N',12,2})    //[31] PRECIO DE VENTA C
+        AADD(aStruc,{"ulc_itl" ,'N',12,2})    //[32] ULTIMO COSTO ITL
+        AADD(aStruc,{"cpr_itl" ,'N',12,2})    //[33] COSTO PROMEDIO ITL
+        AADD(aStruc,{"pve_itl" ,'N',12,2})    //[34] PRECIO DE VENTA ITL
+        AADD(aStruc,{"ulmcodin",'D', 8,0})    //[35] FECHA DEL ULTIMO MOVIMIENTO
+        AADD(aStruc,{"crecodin",'D', 8,0})    //[36] FECHA DE CREACION
+        AADD(aStruc,{"utilicod",'N', 7,2})    //[37] % DE UTILIDAD BRUTA
+        AADD(aStruc,{"tpoinven",'C', 1,0})    //[38] TIPO DE INVENTARIO
+        AADD(aStruc,{"codgrupo",'C',03,2})    //[39] CODIGO DEL GRUPO
+        AADD(aStruc,{"codidepe",'C',10,2})    //[40] CODIGO DEPENDIENTE
+        AADD(aStruc,{"fleteart",'N',08,0})    //[41] VALOR FLETE
+        AADD(aStruc,{"cpvcodin",'N',10,2})    //[42] [x]
+        AADD(aStruc,{"cpedmoin",'N',10,2})    //[43] CANTIDAD PEDIDA
+        AADD(aStruc,{"cpenmoin",'N',10,2})    //[44] CANTIDAD PEDIDA PENDIENTE
+        AADD(aStruc,{"undremin",'N',10,2})    //[45] CANTIDAD REMISIONADA
+        AADD(aStruc,{"aifcodin",'C',10,0})    //[46] CODIGO DE CUENTA
+        AADD(aStruc,{"csaempin",'N',12,2})    //[47] [x]COSTO ANTERIOR 
+        AADD(aStruc,{"slaempin",'N',12,2})    //[48] [x]
+        AADD(aStruc,{"usrginve",'C',10,0})    //[49] [x]
+        AADD(aStruc,{"ctacosin",'C',10,0})    //[50] CUENTA AUXILIAR DE COSTO DE VENTA
+        AADD(aStruc,{"ctavtain",'C',10,0})    //[51] CUENTA AUXILIAR DE VENTA
+        AADD(aStruc,{"ctadtoin",'C',10,0})    //[52] CUENTA AUXILIAR DESCUENTOS
+        AADD(aStruc,{"cdintein",'N', 2,0})    //[53] CODIGO INTERFACE MODULAR [1]
+        AADD(aStruc,{"xfield01",'C', 1,0})    //[54] [x]
+        AADD(aStruc,{"xfield02",'C',12,0})    //[55] [x]
+        AADD(aStruc,{"trafinve",'L', 1,0})    //[56] [x]
+        AADD(aStruc,{"tmdcamto",'C',01,0})    //[57] TIPO DE MEDICAMENTO
+        AADD(aStruc,{"ngeneric",'C',30,0})    //[58] NOMBRE GENERICO
+        AADD(aStruc,{"formafar",'C',20,0})    //[59] FORMA FARMACEUTICA
+        AADD(aStruc,{"concentr",'C',20,0})    //[60] CONCENTRACION
+        AADD(aStruc,{"unimdida",'C',20,0})    //[61] UNIDAD DE MEDIDA
+        AADD(aStruc,{"codi_lot",'C',10,0})    //[62] Codigo Ultimo Lote
+        AADD(aStruc,{"codi_cum",'C',15,0})    //[63] Codigo Cum
+        AADD(aStruc,{"codi_reg",'C',25,0})    //[64] Codigo Registro Invima
+        AADD(aStruc,{"nrecno"  ,'N',11,0})    //[65] [x]
+        AADD(aStruc,{"uuid"    ,'C',36,0})    //[66] [x]
+        AADD(aStruc,{"id"      ,'N',11,0})    //[67] [x]
+        AADD(aStruc,{"esta_rec",'N',01,0})    //[68] [0] Normal [1] Editado - Si Esta en [1] Adiencar lo debe Exportar y al Importar se coloca en [0] [3]Inhabilitado [4]Borrado
+        AADD(aStruc,{"nmov"    ,'N',10,0} )   //[69] NMOV := -1 Nuevo -2 Borrado -3 Modificado - Inactivo .t.
+        AADD(aStruc,{"quien"   ,'C',20,0} )   //[70] CODIGO DEL EQUIPO 5 C + NOMBRE USUARIO 15 C QUIEN REALIZO LA ACTUALIZACION 
+        AADD(aStruc,{"cuando"  ,'C',20,0} )   //[71] DTOS() + TIME()
+        AADD(aStruc,{"inactivo",'L',01,0} )   //[72] .t. Inactivo - .f. activo FILTRAR BROWSE Solo deben Verse los registros Activos
