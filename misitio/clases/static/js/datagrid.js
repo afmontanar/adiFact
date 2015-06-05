@@ -1,5 +1,5 @@
-require(['dojo/_base/declare', 'dijit/form/DateTextBox', 'dojo/date/locale','dojo/_base/array','dojo/_base/json','dijit/DropDownMenu','dijit/MenuItem','dijit/Menu','dijit/PopupMenuBarItem','dijit/MenuBar','dijit/Dialog','dojo/store/JsonRest','dojo/data/ObjectStore','dojo/_base/lang', 'dojox/grid/DataGrid', 'dojo/data/ItemFileWriteStore', 'dijit/form/Button',"dojo/_base/xhr", "dojo/store/Memory", "dijit/form/ComboBox",'dojo/dom', 'dojo/domReady!','dijit/form/ValidationTextBox'],
-function(declare, DateTextBox, locale, array,json,DropDownMenu,MenuItem,Menu,PopupMenuBarItem,MenuBar,Dialog,JsonRest,ObjectStore,lang, DataGrid, ItemFileWriteStore, Button, xhr,Memory, ComboBox, dom, domReady, ValidationTextBox) {
+require(['dojo/_base/declare',"my/nuevoArticulo", 'dijit/form/DateTextBox', 'dojo/date/locale','dojo/_base/array','dojo/_base/json','dijit/DropDownMenu','dijit/MenuItem','dijit/Menu','dijit/PopupMenuBarItem','dijit/MenuBar','dijit/Dialog','dojo/store/JsonRest','dojo/data/ObjectStore','dojo/_base/lang', 'dojox/grid/DataGrid', 'dojo/data/ItemFileWriteStore', 'dijit/form/Button',"dojo/_base/xhr", "dojo/store/Memory", "dijit/form/ComboBox",'dojo/dom', 'dojo/domReady!','dijit/form/ValidationTextBox'],
+function(declare,nuevoArticulo, DateTextBox, locale, array,json,DropDownMenu,MenuItem,Menu,PopupMenuBarItem,MenuBar,Dialog,JsonRest,ObjectStore,lang, DataGrid, ItemFileWriteStore, Button, xhr,Memory, ComboBox, dom, domReady, ValidationTextBox) {
 /*set up data store*/
 
 /*
@@ -7,6 +7,7 @@ var storei = new JsonRest({
    target: "/guardar_chofer/"
 });
 */
+
 
 var pMenuBar = new MenuBar({});
 
@@ -21,7 +22,8 @@ var pMenuBar = new MenuBar({});
     }));
 
     pSubMenu.addChild(new MenuItem({
-        label: "Busqueda historial de vehiculos"
+        label: "Nuevo articulo",
+        onClick:function(){nuevoArtic.nuevoArti.show();}
     }));
     
     pMenuBar.addChild(new PopupMenuBarItem({
@@ -68,7 +70,8 @@ var pMenuBar = new MenuBar({});
         style: "width: 1000px;"
     });
 
-     var nomar = new dijit.form.TextBox({
+
+    var nomar = new dijit.form.TextBox({
             name: "nomar",
             value: "" /* no or empty value! */,
             placeHolder: "",
@@ -291,6 +294,9 @@ var pMenuBar = new MenuBar({});
             placeHolder: "",
             style: "width: 10em;"
         }, "poriva");
+
+       var nuevoArtic = new nuevoArticulo();
+       
      /*
         No es facil JEHOVA uno dejar de sentirse mal, es lamentable y hasta desesperante, padre dame fortalezas para seguir adelante
      */
