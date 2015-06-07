@@ -1,5 +1,5 @@
-require(['dojo/_base/declare',"my/nuevoArticulo", 'dijit/form/DateTextBox', 'dojo/date/locale','dojo/_base/array','dojo/_base/json','dijit/DropDownMenu','dijit/MenuItem','dijit/Menu','dijit/PopupMenuBarItem','dijit/MenuBar','dijit/Dialog','dojo/store/JsonRest','dojo/data/ObjectStore','dojo/_base/lang', 'dojox/grid/DataGrid', 'dojo/data/ItemFileWriteStore', 'dijit/form/Button',"dojo/_base/xhr", "dojo/store/Memory", "dijit/form/ComboBox",'dojo/dom', 'dojo/domReady!','dijit/form/ValidationTextBox'],
-function(declare,nuevoArticulo, DateTextBox, locale, array,json,DropDownMenu,MenuItem,Menu,PopupMenuBarItem,MenuBar,Dialog,JsonRest,ObjectStore,lang, DataGrid, ItemFileWriteStore, Button, xhr,Memory, ComboBox, dom, domReady, ValidationTextBox) {
+require(['dojo/_base/declare',"my/nuevoArticulo","my/gpoArticulo", 'dijit/form/DateTextBox', 'dojo/date/locale','dojo/_base/array','dojo/_base/json','dijit/DropDownMenu','dijit/MenuItem','dijit/Menu','dijit/PopupMenuBarItem','dijit/MenuBar','dijit/Dialog','dojo/store/JsonRest','dojo/data/ObjectStore','dojo/_base/lang', 'dojox/grid/DataGrid', 'dojo/data/ItemFileWriteStore', 'dijit/form/Button',"dojo/_base/xhr", "dojo/store/Memory", "dijit/form/ComboBox",'dojo/dom', 'dojo/domReady!','dijit/form/ValidationTextBox'],
+function(declare,nuevoArticulo,gpoArticulo, DateTextBox, locale, array,json,DropDownMenu,MenuItem,Menu,PopupMenuBarItem,MenuBar,Dialog,JsonRest,ObjectStore,lang, DataGrid, ItemFileWriteStore, Button, xhr,Memory, ComboBox, dom, domReady, ValidationTextBox) {
 /*set up data store*/
 
 /*
@@ -25,7 +25,14 @@ var pMenuBar = new MenuBar({});
         label: "Nuevo articulo",
         onClick:function(){nuevoArtic.nuevoArti.show();}
     }));
+
+     pSubMenu.addChild(new MenuItem({
+        label: "Editar grupo articulo",
+        onClick:function(){gpoArticuloc.gpoarticulo.show();}
+    }));
     
+    
+
     pMenuBar.addChild(new PopupMenuBarItem({
         label: "Inicio",
         popup: pSubMenu
@@ -296,7 +303,7 @@ var pMenuBar = new MenuBar({});
         }, "poriva");
 
        var nuevoArtic = new nuevoArticulo();
-       
+       var gpoArticuloc = new gpoArticulo();
      /*
         No es facil JEHOVA uno dejar de sentirse mal, es lamentable y hasta desesperante, padre dame fortalezas para seguir adelante
      */
