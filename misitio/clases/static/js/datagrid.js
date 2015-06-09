@@ -31,8 +31,6 @@ var pMenuBar = new MenuBar({});
         onClick:function(){gpoArticuloc.gpoarticulo.show();}
     }));
     
-    
-
     pMenuBar.addChild(new PopupMenuBarItem({
         label: "Inicio",
         popup: pSubMenu
@@ -41,18 +39,150 @@ var pMenuBar = new MenuBar({});
     pMenuBar.placeAt("wrapper");
 
     myDialog = new Dialog({
-        title: "Catalogo de articulos",
-        //content: "<form><div id='flotante'><div class='izquierdad'><legend  style='font-weight: bold;'>Datos del cliente (Dueño del vehiculo)</legend><div class='izquierda'><div><label for='tipi'>Tipo de identificacion: </label><input id='stateSelect'></div><div><label for='pnom'>Primer nombre: </label><input type='text' name='pnom' value='' id='pnom'></input></div><div><label for='snom'>Segundo nombre: </label><input type='text' name='snom' value='' id='snom'></input></div><div><label for='papellido'>Primer apellido: </label><input type='text' name='pape' value='' id='pape'></input></div><div><label for='sapellido'>Segundo apellido: </label><input type='text' name='sape' value='' id='sape'></input></div></div><div class='derecha'><div><label for='nide'>Numero Id </label><input type='text' name='numid' value='' id='numid'></input></div><div><label for='dir'>Direccion: </label><input type='text' name='dir' value='' id='dir'></input></div><div><label for='detail'>Detalle: </label><input type='text' name='deta' value='' id='deta'></input></div><div><label for='cel'>Celular: </label><input type='text' name='cel' value='' id='cel'></input></div></div></div><div class='espacio'></div><div class='grilla'><div class='bajar' ><button id='addRow' type='button' >Agregar Fila</button><button id='deleteRow' type='button' >Eliminar Fila</button><button id='guardar' type='button'>Guardar</button></div><div class='bajarq'><div id='gridDiv'></div></div></div></div></form>",
-        content: "<form><div class='busq'><div><label for='cnomp'>Buscar</label><input type='text' name='busa' value='' id='busa'></input></div></div><div class='grida'><div id='gridDiva'></div></div></form>",
-         
-        style: "width: 800px;"
+        title: "Catalogo de articulos", 
+        content: "<form><div><legend style='font-weight: bold;'>Seleccion</legend><div class='seleccion'><button id='nuevo' type='button'>[F2]-Nuevo</button><button id='editar' type='button'>[F3]-Editar</button><button id='partes' type='button'>[F5]-Partes</button><button id='NomTxt' type='button'>[F6]-NomTxt</button><button id='borrar' type='button'>[F7]-Borrar</button><button id='stock' type='button'>[F9]-Stock</button><button id='precios' type='button'>[F8]-Precios</button><button id='imprimir' type='button'>[F10]-imprimir</button><div/><div class='seleccion1'><button id='selection' type='button'>[Ent]-Seleccion</button><button id='salir' type='button'>[Esc]-Salir</button><div/><div class='bjh'><label for='estade'>Estado</label><input type='text' name='estade' value='' id='estade'></input><label for='ivani'>Ivaln</label><input type='text' name='ivani' value='' id='ivani'></input><label for='desto'>%Dto</label><input type='text' name='desto' value='' id='desto'></input><label for='ivac'>%Iva</label><input type='text' name='ivac' value='' id='ivac'></input><label for='prec1'>Precio1</label><input type='text' name='prec1' value='' id='prec1'></input><label for='prec2'>Precio2</label><input type='text' name='prec2' value='' id='prec2'></input><label for='prec3'>Precio3</label><input type='text' name='prec3' value='' id='prec3'></input></div><div class ='bjh1'><label for='bog1'>Bodega1</label><input type='text' name='bog1' value='' id='bog1'></input><label for='bog2'>Bodega2</label><input type='text' name='bog2' value='' id='bog2'></input><label for='bog3'>Bodega3</label><input type='text' name='bog3' value='' id='bog3'></input><label for='bog4'>Bodega4</label><input type='text' name='bog4' value='' id='bog4'></input><label for='bog5'>Bodega5</label><input type='text' name='bog5' value='' id='bog5'></input><div/><div/><div/><div><legend style='font-weight: bold;'>Catalogo de articulos</legend><div class='busq'><div><label for='cnomp'>Buscar</label><input type='text' name='busa' value='' id='busa'></input></div></div><div class='grida'><div id='gridDiva'></div></div></div></form>",      
+        style: "width: 1000px;"
     });
+	
+    var estade = new dijit.form.TextBox({
+            name: "estade",
+            value: "" /* no or empty value! */,
+            placeHolder: "",
+            style: "width: 4em;"
+        }, "estade");
+
+    var ivani = new dijit.form.TextBox({
+            name: "ivani",
+            value: "" /* no or empty value! */,
+            placeHolder: "",
+            style: "width: 4em;"
+        }, "ivani");
+
+    var desto = new dijit.form.TextBox({
+            name: "desto",
+            value: "" /* no or empty value! */,
+            placeHolder: "",
+            style: "width: 4em;"
+        }, "desto");
+
+    var ivac = new dijit.form.TextBox({
+            name: "ivac",
+            value: "" /* no or empty value! */,
+            placeHolder: "",
+            style: "width: 4em;"
+        }, "ivac");
+
+    var prec1 = new dijit.form.TextBox({
+            name: "prec1",
+            value: "" /* no or empty value! */,
+            placeHolder: "",
+            style: "width: 4em;"
+        }, "prec1");
+
+    var prec2 = new dijit.form.TextBox({
+            name: "prec2",
+            value: "" /* no or empty value! */,
+            placeHolder: "",
+            style: "width: 4em;"
+        }, "prec2");
+
+    var prec3 = new dijit.form.TextBox({
+            name: "prec3",
+            value: "" /* no or empty value! */,
+            placeHolder: "",
+            style: "width: 4em;"
+        }, "prec3");
+
+    var bog1 = new dijit.form.TextBox({
+            name: "bog1",
+            value: "" /* no or empty value! */,
+            placeHolder: "",
+            style: "width: 4em;"
+        }, "bog1");
+
+    var bog2 = new dijit.form.TextBox({
+            name: "bog2",
+            value: "" /* no or empty value! */,
+            placeHolder: "",
+            style: "width: 4em;"
+        }, "bog2");
+
+    var bog3 = new dijit.form.TextBox({
+            name: "bog3",
+            value: "" /* no or empty value! */,
+            placeHolder: "",
+            style: "width: 4em;"
+        }, "bog3");
+
+    var bog4 = new dijit.form.TextBox({
+            name: "bog4",
+            value: "" /* no or empty value! */,
+            placeHolder: "",
+            style: "width: 4em;"
+        }, "bog4");
+
+    var bog5 = new dijit.form.TextBox({
+            name: "bog5",
+            value: "" /* no or empty value! */,
+            placeHolder: "",
+            style: "width: 4em;"
+        }, "bog5");
+
+    var button = new Button({
+        onClick: function () {},
+        style: "width: 6em;"
+    },"salir").startup();
+
+	var button = new Button({
+		onClick: function () {},
+		style: "width: 8em;"
+	},"selection").startup();
+
+	var button = new Button({
+		onClick: function () {},
+		style: "width: 7em;"
+	},"imprimir").startup();
+
+	var button = new Button({
+		onClick: function () {},
+		style: "width: 6em;"
+	},"precios").startup();
+
+	var button = new Button({
+		onClick: function () {nuevoArtic.nuevoArti.show();},
+		style: "width: 6em;"
+	},"nuevo").startup();
+
+	var button = new Button({
+		onClick: function () {Articulos.show();},
+		style: "width: 6em;"
+	},"editar").startup();
+
+	var button = new Button({
+		onClick: function () {},
+		style: "width: 6em;"
+	},"partes").startup();
+
+	var button = new Button({
+		onClick: function () {},
+		style: "width: 7em;"
+	},"NomTxt").startup();
+
+	var button = new Button({
+		onClick: function () {},
+		style: "width: 6em;"
+	},"borrar").startup();
+
+	var button = new Button({
+		onClick: function () {},
+		style: "width: 6em;"
+	},"stock").startup();
 
     var busa = new dijit.form.TextBox({
             name: "busa",
             value: "" /* no or empty value! */,
             placeHolder: "",
-            style: "width: 46em;"
+            style: "width: 50em;"
         }, "busa");
 
     var datax = {
