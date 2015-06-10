@@ -182,7 +182,35 @@ var pMenuBar = new MenuBar({});
 	},"nuevo").startup();
 
 	var button = new Button({
-		onClick: function () {Articulos.show();},
+		onClick: function () {
+             var items = grida.selection.getSelected();
+                    if(items.length) {
+                        /* Iterate through the list of selected items.
+                        The current item is available in the variable
+                        'selectedItem' within the following function: */
+                        array.forEach(items, function(selectedItem){
+                            if(selectedItem !== null){
+                                /* Iterate through the list of attributes of each item.
+                                The current attribute is available in the variable
+                                'attribute' within the following function: */
+                                array.forEach(storecx.getAttributes(selectedItem), function(attribute){
+                                    /* Get the value of the current attribute:*/
+                                    var value = storecx.getValues(selectedItem, attribute);
+                                    /* Now, you can do something with this attribute/value pair.
+                                    Our short example shows the attribute together
+                                    with the value in an alert box, but we are sure, that
+                                    you'll find a more ambitious usage in your own code:*/
+                                    if(attribute=='nameh'){
+                                        codiar.setValue(value);
+                                        Articulos.show();
+                                    }
+                                    
+                                }); /* end forEach */
+                            } /* end if */
+                        }); /* end forEach */
+                    } /* end if */
+            
+        },
 		style: "width: 6em;"
 	},"editar").startup();
 
