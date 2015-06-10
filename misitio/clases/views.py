@@ -3,6 +3,7 @@ import json
 from django.http import HttpResponse, Http404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from clases.models import Articulo
 from django.db import IntegrityError
 
 """
@@ -30,70 +31,18 @@ def clientes(request, template_name='cliente.html'):
 	return render(request, template_name, {'form':form})
 """
 
-def guardar_pregunta(request):
+def guardar_articulo(request):
 	if request.is_ajax():
-		pregunta = request.GET['id']
+		co = request.GET['co']
+		no = request.GET['no']
+		tc = request.GET['tc']
 		ti = request.GET['ti']
-		pm = request.GET['pm']
-		sn = request.GET['sn']
-		pa = request.GET['pa']
-		sa = request.GET['sa']
-		di = request.GET['di']
-		cl = request.GET['cl']
-		dt = request.GET['dt']
-		st = request.GET['st']
-		#myList=["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""]
-		print(st)
-
-		myList=[]
-		#   for x in st:
-		#	print(x)
-		myList.append("name")  
-		myList.append("")  
-		a=0
-		b=1
-		while (a<len(st)):		
-			if(":" == st[a]):
-				a += 1
-				while (a<len(st)):
-					if('"' == st[a]):
-						a += 1
-						while (a<len(st)):
-							if ('"' == st[a]):
-								a += 1
-								b += 1
-								myList.append("")
-								break
-							myList[b]+=st[a]
-							a += 1
-					a += 1
-			a += 1
-			
-		"""
-		for i in range (0, len(st)):
-			print(i)
-			if(":" == st[i]):
-				print('Entro')
-				for s in range (i, len(st)):
-					if('"' == st[s]):
-						for w in range (s, len(st)):
-							if ('"' == st[w]):
-								i=w
-								break
-							myList[b]+=st[w]
-						b+=1
-		"""
-		#for two colums print(st[12:-214]):
-		try:
-			r = Cliente.objects.create(TipoIdentificacion=ti, numeroId=pregunta, primeroNombre=pm,segunNombre=sn,primeroApellido=pa,segundoApellido=sa,direccion=di,celular=cl,detalles=dt)
-			
-			h=len(myList)/12
+		cu = request.GET['cu']
+		nu = request.GET['nu']
 		
-			j=0
-			for x in xrange(0,h):
-				o = Chofer.objects.create(cliente_id=pregunta,Identificacion=myList[j+1],primeroNombre=myList[j+3],primeroApellido=myList[j+5],direccion=myList[j+7],celular=myList[j+9],detalle=myList[j+11])
-				j=j+12
-			#o = Chofer.objects.create(cliente=pregunta,Identificacion=,primeroNombre=,segunNombre=,primeroApellido=,segundoApellido=,direccion=,celular=,detalle=)
+		try:
+			r = Articulo.objects.create(Codigo=co, Nombre=no, TipoCodigo=tc,TipoInventario=ti,CodigoPlu=cu,NombrePlu=nu)
+			
 			return HttpResponse(
 			json.dumps({'respuesta': 'si'}),
 			content_type="application/json; charset=uft8"
@@ -103,14 +52,6 @@ def guardar_pregunta(request):
 			json.dumps({'respuesta': 'no'}),
 			content_type="application/json; charset=uft8"
 			)
-
-	""" preguntas = Cliente.objects.all()
-		data = serializers.serialize('json', preguntas, fields=('numeroId','primeroNombre'))
-		return HttpResponse(data, mimetype='application/json')"""
-	"""return HttpResponse(
-			json.dumps({'respuestas': data, 'pregunta': id}),
-			content_type="application/json; charset=uft8"
-			)"""
 
 def guardar_chofer(request):
 	chofer = Cliente.objects.all()

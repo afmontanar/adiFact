@@ -207,13 +207,13 @@ var pMenuBar = new MenuBar({});
         style: "width: 1000px;"
     });
 
-      var statee = new Memory({
-            data: [
+    var statee = new Memory({
+           data: [
                 {name:"1", id:"1"},
                 {name:"2", id:"2"},
                 {name:"3", id:"3"}
             ]
-        });
+       });
     
     var estadex = new dijit.form.ComboBox({
             name: "stei",
@@ -333,11 +333,20 @@ var pMenuBar = new MenuBar({});
             style: "width: 10em;"
         }, "desapi");
 
-      var ctainv  = new dijit.form.TextBox({
+      var statev = new Memory({
+            data: [
+                {name:"1", id:"1"},
+                {name:"2", id:"2"},
+                {name:"3", id:"3"}
+            ]
+      });
+
+      var ctainv = new dijit.form.ComboBox({
             name: "ctainv",
-            value: "" /* no or empty value! */,
-            placeHolder: "",
-            style: "width: 10em;"
+            value: "",
+            store: statev,
+            searchAttr: "name",
+            style: "width: 8em;"
         }, "ctainv");
 
       var ulticos = new dijit.form.TextBox({
@@ -354,11 +363,20 @@ var pMenuBar = new MenuBar({});
             style: "width: 10em;"
         }, "flete");
 
-      var ctaing = new dijit.form.TextBox({
+      var stateg = new Memory({
+            data: [
+                {name:"1", id:"1"},
+                {name:"2", id:"2"},
+                {name:"3", id:"3"}
+            ]
+      });
+
+      var ctaing = new dijit.form.ComboBox({
             name: "ctaing",
-            value: "" /* no or empty value! */,
-            placeHolder: "",
-            style: "width: 10em;"
+            value: "",
+            store: statev,
+            searchAttr: "name",
+            style: "width: 8em;"
         }, "ctaing");
 
       var costpre = new dijit.form.TextBox({
@@ -368,11 +386,20 @@ var pMenuBar = new MenuBar({});
             style: "width: 10em;"
         }, "costpre");
 
-      var cosve = new dijit.form.TextBox({
+       var statee = new Memory({
+            data: [
+                {name:"1", id:"1"},
+                {name:"2", id:"2"},
+                {name:"3", id:"3"}
+            ]
+      });
+
+      var cosve = new dijit.form.ComboBox({
             name: "cosve",
-            value: "" /* no or empty value! */,
-            placeHolder: "",
-            style: "width: 10em;"
+            value: "",
+            store: statee,
+            searchAttr: "name",
+            style: "width: 8em;"
         }, "cosve");
 
       var statev = new Memory({
@@ -428,11 +455,20 @@ var pMenuBar = new MenuBar({});
             style: "width: 10em;"
         }, "prevent"); 
 
-      var tipem = new dijit.form.TextBox({
+      var statem = new Memory({
+            data: [
+                {name:"1", id:"1"},
+                {name:"2", id:"2"},
+                {name:"3", id:"3"}
+            ]
+      });
+
+      var tipem = new dijit.form.ComboBox({
             name: "tipem",
-            value: "" /* no or empty value! */,
-            placeHolder: "",
-            style: "width: 10em;"
+            value: "",
+            store: statem,
+            searchAttr: "name",
+            style: "width: 4em;"
         }, "tipem");
 
        var prevent3 = new dijit.form.TextBox({

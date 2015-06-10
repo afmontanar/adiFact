@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^cliente/$', views.clientes, name='clientes'),
     url(r'^clienteu/$', views.clienteu, name='clienteu'),
-    url(r'^guardar-pregunta/$', views.guardar_pregunta, name='guardar_pregunta'),
+    url(r'^guardar_articulo/$', views.guardar_articulo, name='guardar_articulo'),
   	url(r'^guardar_chofer/$', views.guardar_chofer, name='guardar_chofer'),
   	url(r'^busqueda_filtreada/$', views.busqueda_filtreada, name='busqueda_filtreada'),
   	url(r'^tener_Chofe_client/$', views.tener_Chofe_client, name='tener_Chofe_client')
