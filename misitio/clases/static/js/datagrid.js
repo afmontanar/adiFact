@@ -8,13 +8,41 @@ var storei = new JsonRest({
 });
 */
 
+   function llenarTabla(){
+                xhr.get({
+                   url: '/busqueda_filtreada/',
+                        //type: 'get',
+
+                        content: {
+                                 
+                        },
+                        // The success callback with result from server
+                        load: function(newContent) {
+                            var obj = JSON.parse(newContent);
+                            var dataxc = {
+                                      items: obj
+                                 }
+                            
+                            storecx = new ItemFileWriteStore({data: dataxc}); 
+                            grida.setStore(storecx); 
+                            
+                            //dom.byId("contentNode").innerHTML = newContent;
+                            //storec = new dojo.store.JsonRest(data:newContent)
+                            //dataStore = new dojo.data.ObjectStore({objectStore: storec});
+                        },
+                        // The error handler
+                        error: function() {
+                            // Do nothing -- keep old content there
+                        }
+                });
+            };
 
 var pMenuBar = new MenuBar({});
 
     var pSubMenu = new DropDownMenu({});
     pSubMenu.addChild(new MenuItem({
         label: "Catalogo de articulos",
-        onClick:function(){myDialog.show();}
+        onClick:function(){llenarTabla();myDialog.show();}
     }));
     pSubMenu.addChild(new MenuItem({
         label: "Actualizacion de articulos",
@@ -189,13 +217,13 @@ var pMenuBar = new MenuBar({});
       items: []
     }
 
-    var storex = new ItemFileWriteStore({data: datax});
+    var storecx = null;
 
 
     var grida = new DataGrid({
         id: 'grida',
-        store: storex,
-        structure: [{name:"Codigo", field:"nameh", width: "200px",editable:false},{name:"Nombre", field:"nameh1", width: "200px",editable:true},{name:"Codigo pos", field:"Referencia", width: "200px",editable:true},{name:"Tipo/Linea", field:"nameh3", width: "200px",editable:true},{name:"Precio A", field:"nameh4", width: "200px",editable:true},{name:"Precio B", field:"nameh5", width: "200px",editable:false},{name:"Precio C", field:"nameh6", width: "200px",editable:false},{name:"Iva", field:"nameh7", width: "200px",editable:false},{name:"Descuento", field:"nameh8", width: "200px",editable:false},{name:"Costo", field:"nameh9", width: "200px",editable:false},{name:"Cuenta", field:"nameh9", width: "200px",editable:false}]
+        store: storecx,
+        structure: [{name:"Codigo", field:"nameh", width: "200px",editable:false},{name:"Nombre", field:"nameh1", width: "200px",editable:true},{name:"Codigo pos", field:"Nameh2", width: "200px",editable:true},{name:"Tipo/Linea", field:"nameh3", width: "200px",editable:true},{name:"Precio A", field:"nameh4", width: "200px",editable:true},{name:"Precio B", field:"nameh5", width: "200px",editable:false},{name:"Precio C", field:"nameh6", width: "200px",editable:false},{name:"Iva", field:"nameh7", width: "200px",editable:false},{name:"Descuento", field:"nameh8", width: "200px",editable:false},{name:"Costo", field:"nameh9", width: "200px",editable:false},{name:"Cuenta", field:"nameh10", width: "200px",editable:false}]
     }); // {"Cantidad", "Marca", "Referencia", "Detalle", "Rueda", "Valor unitario", "Valor total", "Valor con descuento"};---,type: dojox.grid.cells.TextBox, onKeyUp: function (evt) {totar.setValue(canti.get("value")*this.get("value")); updateAllh();}
 
     grida.placeAt("gridDiva");

@@ -78,7 +78,7 @@ def guardar_chofer(request):
 
 def busqueda_filtreada(request):
 	if request.is_ajax():
-		chofer = Cliente.objects.all()
+		chofer = Articulo.objects.all()
 		
 		"""return HttpResponse(
 				json.dumps({'nombre': cliente.TipoIdentificacion, 'descripcion': cliente.numeroId, 'url': cliente.primeroNombre,'nombres': cliente.TipoIdentificacion, 'descripcions': cliente.numeroId, 'urls': cliente.primeroNombre }),
@@ -89,10 +89,11 @@ def busqueda_filtreada(request):
 				json.dumps({'identifier': 'id','items': [col1: "normal", col2: "normal", col3: "normal", col4: "normal",col5: "normal", col6: "normal"]})
 		{"""
 
+
 		myList=[]
 		i=0
 		for dato in chofer:
-			myList.append({"id":i,"namec1":dato.numeroId,"namec2":dato.primeroNombre,"namec3":dato.primeroApellido,"namec4":dato.celular,"namec5":dato.detalles})
+			myList.append({"nameh":dato.Codigo,"nameh1":dato.Nombre,"nameh2":dato.CodigoPlu,"nameh3":dato.Tipoarticulo,"nameh4":dato.PrecioVent1,"nameh5":dato.PrecioVent2,"Codigo":dato.PrecioVent3,"nameh6":dato.IvaVentas,"nameh7":dato.DtoFacturacion,"nameh8":dato.CostoVenta,"nameh9":dato.CostoBase,"nameh10":dato.CtaInventario})
 			i=i+1
 		
 		return HttpResponse(
