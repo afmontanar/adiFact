@@ -2,78 +2,44 @@ from django.db import models
 from django.core.urlresolvers import reverse
 # Create your models here.
 
-class Cliente(models.Model):
-    TIPOS_IDE = (
-        ('CC', 'Cedula de ciudania'),
-        ('CE', 'Cedula de extranjeria'),
-        ('TI', 'Targeta de identidad'),
-    )
-    TipoIdentificacion = models.CharField(max_length=3, choices=TIPOS_IDE)
-    numeroId = models.CharField(max_length=20, primary_key=True)
-    primeroNombre = models.CharField(max_length=20)
-    segunNombre = models.CharField(max_length=20, blank=True)
-    primeroApellido = models.CharField(max_length=20, blank=True)
-    segundoApellido = models.CharField(max_length=20)
-    direccion = models.CharField(max_length=20)
-    celular = models.CharField(max_length=60)
-    detalles = models.CharField(max_length=300, blank=True)
-    
+class Articulo(models.Model):
+    Codigo = models.CharField(max_length=30, primary_key=True)
+    Nombre = models.CharField(max_length=200)
+    TipoCodigo = models.CharField(max_length=1)
+    TipoInventario = models.CharField(max_length=1)
+    CodigoPlu = models.CharField(max_length=30)
+    NombrePlu = models.CharField(max_length=30)
+    GrupoLinea = models.CharField(max_length=30)
+    Localizacion = models.CharField(max_length=30)
+    ExistenciaMax = models.CharField(max_length=30)
+    Referecia = models.CharField(max_length=30)
+    Dependencia = models.CharField(max_length=30)
+    ExistenciaMin = models.CharField(max_length=30)
+    DescripcionApida = models.CharField(max_length=30)
+    CtaInventario = models.CharField(max_length=30)
+    UltimoCosto = models.CharField(max_length=30)
+    Estado = models.CharField(max_length=30)
+    CtaIngresos = models.CharField(max_length=30)
+    Fletes = models.CharField(max_length=30)
+    IvaVentas = models.CharField(max_length=30)
+    CostoVenta = models.CharField(max_length=30)
+    CostoBase = models.CharField(max_length=30)
+    Tipoarticulo = models.CharField(max_length=30)
+    InterfaceCon = models.CharField(max_length=30)
+    PrecioVent1 = models.CharField(max_length=30)
+    TipoEmpaque = models.CharField(max_length=30)
+    PrecioVent2 = models.CharField(max_length=30)
+    UnidadeXempaque = models.CharField(max_length=30)
+    PrecioVent3 = models.CharField(max_length=30)
+    PorIva = models.CharField(max_length=30)
+    DtoFacturacion = models.CharField(max_length=30)
+    FechaEntrada = models.CharField(max_length=30)
+    Lote = models.CharField(max_length=30)
+
     def __unicode__(self):
-    	return self.numeroId
+    	return self.Nombre
 
     def get_absolute_url(self):
     	return reverse('clientes', kwargs={'pk':self.pk})
 
 
-class Chofer(models.Model):
-    cliente = models.ForeignKey(Cliente)
-    Identificacion = models.CharField(max_length=20, blank=True)
-    primeroNombre = models.CharField(max_length=20, blank=True)
-    segunNombre = models.CharField(max_length=20, blank=True)
-    primeroApellido = models.CharField(max_length=20, blank=True)
-    segundoApellido = models.CharField(max_length=20, blank=True)
-    direccion = models.CharField(max_length=20, blank=True)
-    celular = models.CharField(max_length=60, blank=True)
-    detalle = models.CharField(max_length=300, blank=True)
-    
-    def __unicode__(self):
-        return self.Identificacion
-
-    def get_absolute_url(self):
-        return reverse('choferes', kwargs={'pk':self.pk})
-
-
-class HistoriaVehiculo(models.Model):
-    cliente = models.ForeignKey(Cliente)
-    chofer = models.ForeignKey(Chofer)
-    nombre = models.CharField(max_length=50, blank=True)
-    placa = models.CharField(max_length=50, blank=True)
-    fecha = models.DateTimeField(auto_now=False, auto_now_add=False)
-    valorTotal = models.CharField(max_length=20, blank=True)
-    valorTotalConDescuento = models.CharField(max_length=20, blank=True)
-    
-    def __unicode__(self):
-        return self.id
-
-    def get_absolute_url(self):
-        return reverse('historiavehiculo', kwargs={'pk':self.pk})
-
-
-class DetalleHistoriaVehiculo(models.Model):
-    codhistori = models.ForeignKey(HistoriaVehiculo)
-    cantidad = models.CharField(max_length=12, blank=True)
-    marca = models.CharField(max_length=12, blank=True)
-    referencia = models.CharField(max_length=30, blank=True)
-    detalle = models.CharField(max_length=20, blank=True)
-    rueda = models.CharField(max_length=30, blank=True)
-    valorunitario = models.CharField(max_length=30, blank=True)
-    valortotal = models.CharField(max_length=30, blank=True)
-    valordescuento = models.CharField(max_length=30, blank=True)
-
-    def __unicode__(self):
-        return self.id
-
-    def get_absolute_url(self):
-        return reverse('detallehistoriavehiculo', kwargs={'pk':self.pk})
-
-    
