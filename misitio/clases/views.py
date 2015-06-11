@@ -101,27 +101,16 @@ def busqueda_filtreada(request):
 				content_type="application/json; charset=uft8"
 				)
 	
-def tener_Chofe_client(request):
+def tener_Articulo(request):
 	if request.is_ajax():
 
-		chofer = Chofer.objects.filter(cliente_id=request.GET['id'])
-		
-		"""return HttpResponse(
-				json.dumps({'nombre': cliente.TipoIdentificacion, 'descripcion': cliente.numeroId, 'url': cliente.primeroNombre,'nombres': cliente.TipoIdentificacion, 'descripcions': cliente.numeroId, 'urls': cliente.primeroNombre }),
-				content_type="application/json; charset=uft8"
-				)
-				
-
-				json.dumps({'identifier': 'id','items': [col1: "normal", col2: "normal", col3: "normal", col4: "normal",col5: "normal", col6: "normal"]})
-		{"""
+		articulo = Articulo.objects.filter(Codigo=request.GET['co'])
 		
 		myList=[]
 		i=0
-		for dato in chofer:
-			myList.append({"named":dato.Identificacion,"named1":dato.primeroNombre,"named2":dato.primeroApellido,"named3":dato.direccion,"named4":dato.celular,"named5":dato.detalle})
+		for dato in articulo:
+			myList.append({"Codigo":dato.Codigo,"Nombre":dato.Nombre,"TipoCodigo":dato.TipoCodigo,"TipoInventario":dato.TipoInventario,"CodigoPlu":dato.CodigoPlu,"NombrePlu":dato.NombrePlu,"GrupoLinea":dato.GrupoLinea,"Localizacion":dato.Localizacion,"ExistenciaMax":dato.ExistenciaMax,"Referecia":dato.Referecia,"Dependencia":dato.Dependencia,"ExistenciaMin":dato.ExistenciaMin,"DescripcionApida":dato.DescripcionApida,"CtaInventario":dato.CtaInventario,"UltimoCosto":dato.UltimoCosto,"Estado":dato.Estado,"CtaIngresos":dato.CtaIngresos,"Fletes":dato.Fletes,"IvaVentas":dato.IvaVentas,"CostoVenta":dato.CostoVenta,"CostoBase":dato.CostoBase,"Tipoarticulo":dato.Tipoarticulo,"InterfaceCon":dato.InterfaceCon,"PrecioVent1":dato.PrecioVent1,"TipoEmpaque":dato.TipoEmpaque,"PrecioVent2":dato.PrecioVent2,"UnidadeXempaque":dato.UnidadeXempaque,"PrecioVent3":dato.PrecioVent3,"PorIva":dato.PorIva,"DtoFacturacion":dato.DtoFacturacion,"FechaEntrada":dato.FechaEntrada,"Lote":dato.Lote})
 			i=i+1
-			
-		
 		return HttpResponse(
 				json.dumps(myList),
 				content_type="application/json; charset=uft8"
