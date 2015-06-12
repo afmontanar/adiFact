@@ -53,6 +53,91 @@ def guardar_articulo(request):
 			content_type="application/json; charset=uft8"
 			)
 
+def guardar_articuloe(request):
+	if request.is_ajax():
+		co = request.GET['co']
+		no = request.GET['no']
+		tc = request.GET['tc']
+		ti = request.GET['ti']
+		cu = request.GET['cu']
+		nu = request.GET['nu']
+		GrupoLineai = request.GET['GrupoLinea']
+		Localizacioni = request.GET['Localizacion']
+		ExistenciaMaxi = request.GET['ExistenciaMax']
+		Refereciai = request.GET['Referecia']
+		Dependenciai = request.GET['Dependencia']
+		ExistenciaMini = request.GET['ExistenciaMin']
+		DescripcionApidai = request.GET['DescripcionApida']
+		CtaInventarioi = request.GET['CtaInventario']
+		UltimoCostoi = request.GET['UltimoCosto']
+		Refereciai = request.GET['Referecia']
+		Estadoi = request.GET['Estado']
+		CtaIngresosi = request.GET['CtaIngresos']
+		Fletesi = request.GET['Fletes']
+		IvaVentasi = request.GET['IvaVentas']
+		CostoVentai = request.GET['CostoVenta']
+		CostoBasei = request.GET['CostoBase']
+		Tipoarticuloi = request.GET['Tipoarticulo']
+		InterfaceConi = request.GET['InterfaceCon']
+		PrecioVent1i = request.GET['PrecioVent1']
+		TipoEmpaquei = request.GET['TipoEmpaque']
+		PrecioVent2i = request.GET['PrecioVent2']
+		UnidadeXempaquei = request.GET['UnidadeXempaque']
+		PrecioVent3i = request.GET['PrecioVent3']
+		PorIvai = request.GET['PorIva']
+		DtoFacturacioni = request.GET['DtoFacturacion']
+		FechaEntradai = request.GET['FechaEntrada']
+		Lotei = request.GET['Lote']
+		print(co)
+		try:
+			u = Articulo.objects.get(pk='1')
+			print("pasamos por aqui")
+			u.Nombre=no
+			print("pasamos por aqui1")
+			u.TipoCodigo=tc
+
+
+			u.TipoInventario=ti
+			u.CodigoPlu=cu
+			u.NombrePlu=nu
+			u.GrupoLinea=GrupoLineai
+			u.Localizacion=Localizacioni
+			u.ExistenciaMax=ExistenciaMaxi
+			u.Referecia=Refereciai
+			u.Dependencia=Dependenciai
+			u.ExistenciaMin=ExistenciaMini
+			u.DescripcionApida=DescripcionApidai
+			u.CtaInventario=CtaInventarioi
+			u.UltimoCosto=UltimoCostoi
+			u.Estado=Estadoi
+			u.CtaIngresos=CtaIngresosi
+			u.Fletes=Fletesi
+			u.IvaVentas=IvaVentasi
+			u.CostoVenta=CostoVentai
+			u.CostoBase=CostoBasei
+			u.Tipoarticulo=Tipoarticuloi
+			u.InterfaceCon=InterfaceConi
+			u.PrecioVent1=PrecioVent1i
+			u.TipoEmpaque=TipoEmpaquei
+			u.PrecioVent2=PrecioVent2i
+			u.UnidadeXempaque=UnidadeXempaquei
+			u.PrecioVent3=PrecioVent3i
+			u.PorIva=PorIvai
+			u.DtoFacturacion=DtoFacturacioni
+			u.FechaEntrada=FechaEntradai
+			u.Lote=Lotei
+			u.save()
+			return HttpResponse(
+				json.dumps({'respuesta': 'si'}),
+				content_type="application/json; charset=uft8"
+				)
+		except IntegrityError:
+			return HttpResponse(
+				json.dumps({'respuesta': 'no'}),
+				content_type="application/json; charset=uft8"
+				)
+
+
 def guardar_chofer(request):
 	chofer = Cliente.objects.all()
 	

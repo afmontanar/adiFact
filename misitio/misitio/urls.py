@@ -10,7 +10,8 @@ urlpatterns = patterns('',
     url(r'^cliente/$', views.clientes, name='clientes'),
     url(r'^clienteu/$', views.clienteu, name='clienteu'),
     url(r'^guardar_articulo/$', views.guardar_articulo, name='guardar_articulo'),
-  	url(r'^guardar_chofer/$', views.guardar_chofer, name='guardar_chofer'),
+  	url(r'^guardar_articuloe/$', views.guardar_articuloe, name='guardar_articuloe'),
+    url(r'^guardar_chofer/$', views.guardar_chofer, name='guardar_chofer'),
   	url(r'^busqueda_filtreada/$', views.busqueda_filtreada, name='busqueda_filtreada'),
   	url(r'^tener_Articulo/$', views.tener_Articulo, name='tener_Articulo')
   	
