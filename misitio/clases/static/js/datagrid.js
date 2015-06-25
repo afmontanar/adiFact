@@ -5,6 +5,8 @@ function(declare, nuevoArticulo, gpoArticulo, carticulo, DateTextBox, locale, ar
     var gpoArticuloc = new gpoArticulo();
     var carticulow = new carticulo(nuevoArtic);
 
+    nuevoArtic.llenarTablac(carticulow);
+
     var pMenuBar = new MenuBar({});
     var pSubMenu = new DropDownMenu({});
 
