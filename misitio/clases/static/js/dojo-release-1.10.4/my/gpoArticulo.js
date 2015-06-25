@@ -20,50 +20,9 @@ define(["dojo/_base/declare", 'dijit/Dialog', 'dijit/form/ValidationTextBox','di
         style: "width: 1000px;"
     });
 
-        var nomag = new dijit.form.TextBox({
-            name: "nomag",
-            value: "" /* no or empty value! */,
-            placeHolder: "",
-            style: "width: 30em;"
-        }, "nomag");
+    
 
-        var codiag = new dijit.form.TextBox({
-            name: "codiag",
-            value: "" /* no or empty value! */,
-            placeHolder: "",
-            style: "width: 10em;"
-        }, "codiag");
-
-        var codplug = new dijit.form.TextBox({
-            name: "codplug",
-            value: "" /* no or empty value! */,
-            placeHolder: "",
-            style: "width: 2em;"
-        }, "codplug");
-
-        var tipinvg = new dijit.form.TextBox({
-            name: "tipinvg",
-            value: "" /* no or empty value! */,
-            placeHolder: "",
-            style: "width: 2em;"
-        }, "tipinvg");
-
-        var ticodg = new dijit.form.TextBox({
-            name: "ticodg",
-            value: "" /* no or empty value! */,
-            placeHolder: "",
-            style: "width: 2em;"
-        }, "ticodg");
-
-        var nuevos = new dijit.form.Button({
-            onClick: function () {alert("ola juan")},
-            style: "width: 6em;"
-        },"nuevos").startup();
-
-        var editars = new dijit.form.Button({
-            onClick: function () {},
-            style: "width: 6em;"
-        },"editars").startup();
+        
    }
 
   });
