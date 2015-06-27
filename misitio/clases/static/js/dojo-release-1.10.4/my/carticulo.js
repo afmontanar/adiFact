@@ -1,7 +1,7 @@
 define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/TextBox','dijit/form/Button','dojox/grid/DataGrid','dojo/_base/xhr'], function(Memory,declare,Dialog,Button,DataGrid,xhr){
     
     return declare(null,{ 
-    constructor: function(nuevoArtic){
+    constructor: function(nuevoArtic,articlev,array){
 
 	    this.catart = new Dialog({
 	        title: "Catalogo de articulos", 
@@ -164,6 +164,7 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
                         /* Iterate through the list of selected items.
                         The current item is available in the variable
                         'selectedItem' within the following function: */
+                        
                         array.forEach(items, function(selectedItem){
                             if(selectedItem !== null){
                                 /* Iterate through the list of attributes of each item.
@@ -177,8 +178,8 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
                                     with the value in an alert box, but we are sure, that
                                     you'll find a more ambitious usage in your own code:*/
                                     if(attribute=='nameh'){
-                                        consultarEditar(value);
-                                        Articulos.show();
+                                        articlev.consultarEditar(value);
+                                        articlev.catart.show();
                                     }
                                     
                                 }); /* end forEach */
