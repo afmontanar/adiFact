@@ -9,7 +9,7 @@ function(declare, nuevoArticulo, gpoArticulo, carticulo, editArticulo, DateTextB
     /*
     
     */
-
+    articlev.llenarTablac(carticulow);
     nuevoArtic.llenarTablac(carticulow);
 
 

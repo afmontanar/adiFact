@@ -14,7 +14,7 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
 	    var grida = new dojox.grid.DataGrid({
 	        id: 'grida',
 	        store: storecx,
-	        structure: [{name:"Codigo", field:"nameh", width: "200px",editable:false},{name:"Nombre", field:"nameh1", width: "200px",editable:true},{name:"Codigo pos", field:"Nameh2", width: "200px",editable:true},{name:"Tipo/Linea", field:"nameh3", width: "200px",editable:true},{name:"Precio A", field:"nameh4", width: "200px",editable:true},{name:"Precio B", field:"nameh5", width: "200px",editable:false},{name:"Precio C", field:"nameh6", width: "200px",editable:false},{name:"Iva", field:"nameh7", width: "200px",editable:false},{name:"Descuento", field:"nameh8", width: "200px",editable:false},{name:"Costo", field:"nameh9", width: "200px",editable:false},{name:"Cuenta", field:"nameh10", width: "200px",editable:false}]
+	        structure: [{name:"Codigo", field:"nameh", width: "200px",editable:false},{name:"Nombre", field:"nameh1", width: "200px",editable:true},{name:"Codigo pos", field:"nameh2", width: "200px",editable:true},{name:"Tipo/Linea", field:"nameh3", width: "200px",editable:true},{name:"Precio A", field:"nameh4", width: "200px",editable:true},{name:"Precio B", field:"nameh5", width: "200px",editable:false},{name:"Precio C", field:"nameh6", width: "200px",editable:false},{name:"Iva", field:"nameh7", width: "200px",editable:false},{name:"Descuento", field:"nameh8", width: "200px",editable:false},{name:"Costo", field:"nameh9", width: "200px",editable:false},{name:"Cuenta", field:"nameh10", width: "200px",editable:false}]
 	    }); // {"Cantidad", "Marca", "Referencia", "Detalle", "Rueda", "Valor unitario", "Valor total", "Valor con descuento"};---,type: dojox.grid.cells.TextBox, onKeyUp: function (evt) {totar.setValue(canti.get("value")*this.get("value")); updateAllh();}
 
 	    grida.placeAt("gridDiva");
@@ -47,6 +47,7 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
                 });
         };
 
+        var llenaInt = this.llenarTabla ;
 		var estade = new dijit.form.TextBox({
 	            name: "estade",
 	            value: "" /* no or empty value! */,
@@ -215,6 +216,20 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
             name: "busa",
             value: "" /* no or empty value! */,
             placeHolder: "",
+            onKeyUp: function (evt) {     
+                grida.filter({nameh: "*"+this.get("value")+"*" , nameh1: "*"+this.get("value")+"*"}); 
+                if(this.get("value")==""){
+                    llenaInt();
+                }   
+                 /*{nameh: "*"+this.get("value")+"*"}|| 
+                    totar.setValue(canti.get("value")*this.get("value"));
+                    updateAllh();
+                    int parseInt = Integer.parseInt(text);
+                    int parseInt1 = Integer.parseInt(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString());
+                    int resultado = parseInt * parseInt1;
+                    jTable1.setValueAt(resultado + "", jTable1.getSelectedRow(), 6);
+                 */
+            },
             style: "width: 50em;"
         }, "busa");
 

@@ -6,7 +6,11 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
 	        content: "<form><legend style='font-weight: bold;'>Datos del articulo</legend><div class='artic1'><label for='noma'>Nombre</label><input type='text' name='nomar' value='' id='nomar'></input></div><div class='artic'><label for='codiar'>Codigo</label><input  name='codiar' value='' id='codiar'></input></div><div class='artic5'><label for='nomplul'>Nombre plu</label><input type='text' name='nomplu' value='' id='nomplu'></input></div><div class='artic4'><label for='codplu'>Codigo plu</label><input type='text' name='codplu' value='' id='codplu'></input></div><div class='artic3'><label for='ticoinv'>Tipo de inventario</label><input type='text' name='tipinv' value='' id='tipinv'></input></div><div class='artic2'><label for='ticod'>Tipo de codigo</label><input type='text' name='ticodr' value='' id='ticodr'></input></div><div class='artic8'><label for='eximax'>Existencia max</label><input type='text' name='eximax' value='' id='eximax'></input></div><div class='artic7'><label for='locati'>Localizacion</label><input type='text' name='locati' value='' id='locati'></input></div><div class='artic6'><label for='grolin'>Grupo/Linea</label><input type='text' name='grolin' value='' id='grolin'></input></div><div class='artic11'><label for='eximin'>Existencia Min</label><input type='text' name='eximin' value='' id='eximin'></input></div><div class='artic10'><label for='depen'>Dependencia</label><input type='text' name='depen' value='' id='depen'></input></div><div class='artic9'><label for='refeart'>Referencia</label><input type='text' name='refeart' value='' id='refeart'></input></div><div class='artic14'><label for='ulticos'>Ultimo Costo</label><input type='text' name='ulticos' value='' id='ulticos'></input></div><div class='artic13'><label for='ctainv'>Cta Inventarios</label><input type='text' name='ctainv' value='' id='ctainv'></input></div><div class='artic12'><label for='desapi'>Descripcion Apida</label><input type='text' name='desapi' value='' id='desapi'></input></div><div class='artic16'><label for='flete'>Fletes</label><input type='text' name='flete' value='' id='flete'></input></div><div class='artic17'><label for='ctaing'>Cta ingresos</label><input type='text' name='ctaing' value='' id='ctaing'></input></div><div class='artic15'><label for='stei'>Estado</label><input type='text' name='stei' value='' id='stei'></input></div><div class='artic20'><label for='costpre'>Costo Base Pre</label><input type='text' name='costpre' value='' id='costpre'></input></div><div class='artic19'><label for='cosve'>Costo Ventas</label><input type='text' name='cosve' value='' id='cosve'></input></div><div class='artic18'><label for='ivave'>Iva ventas</label><input type='text' name='ivave' value='' id='ivave'></input></div><div class='artic23'><label for='preve1'>Precio Venta 1</label><input type='text' name='preve1' value='' id='preve1'></input></div><div class='artic22'><label for='interCont'>Interface Contable</label><input type='text' name='interCont' value='' id='interCont'></input></div><div class='artic21'><label for='tiart'>Tipo de Articulo</label><input type='text' name='tiart' value='' id='tiart'></input></div><div class='artic25'><label for='prevent'>Precio venta 2</label><input type='text' name='prevent' value='' id='prevent'></input></div><div class='artic24'><label for='tipem'>Tipo de Empaque</label><input type='text' name='tipem' value='' id='tipem'></input></div><div class='artic27'><label for='prevent3'>Precio venta 3</label><input type='text' name='prevent3' value='' id='prevent3'></input></div><div class='artic26'><label for='unixemp'>Unidades por empaque</label><input type='text' name='unixemp' value='' id='unixemp'></input></div><div class='artic28'><label for='poriva'>% iva</label><input type='text' name='poriva' value='' id='poriva'></input></div><div class='artic29'><label for='pordefa'>% Dto Facturacion</label><input type='text' name='pordefa' value='' id='pordefa'></input></div><div class='artic30'><label for='fechae'>Fecha Entrada</label><input type='text' name='fechae' value='' id='fechae'></input></div><div class='artic31'><label for='lote'>Lote</label><input type='text' name='lote' value='' id='lote'></input></div><div class='artic32'><button id='aceptaare' type='button'>[Ent]-Aceptar</button></div><div class='artic33'><button id='escapar' type='button'>[Esc]-Salir</button></div></form>",   
 	        style: "width: 1000px; background-color:white;"
     	});
-
+		var cartivia = null;
+	this.llenarTablac = function(carticulow){
+			cartivia = carticulow;
+		}
+	 var dialocatr = this.catart;
 	 var codiar = new dijit.form.TextBox({
             name: "codiar",
             editable: false,
@@ -16,7 +20,7 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
        }, "codiar");
 
     var escapar = new dijit.form.Button({
-            onClick: function () {Articulos.hide();},
+            onClick: function () {dialocatr.hide();},
             style: "width: 6em;"
         },"escapar");
 
@@ -419,7 +423,7 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
                                     UnidadeXempaque : unixemp.value,
                                     PrecioVent3 : prevent3.value,
                                     PorIva : poriva.value,
-                                    DtoFacturacion : desto.value,
+                                    DtoFacturacion : pordefa.value,
                                     FechaEntrada : fechae.value,
                                     Lote : lote.value
                                 },
@@ -457,10 +461,10 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
                                            unixemp.reset(),
                                            prevent3.reset(),
                                            poriva.reset(),
-                                           desto.reset(),
+                                           pordefa.reset(),
                                            fechae.reset(),
-                                           lote.reset()
-                                         
+                                           lote.reset(),
+                                         	cartivia.llenarTabla()
                                      }else{
                                         alert("Este articulo ya existe");
                                          cnew.reset();

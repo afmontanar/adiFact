@@ -169,8 +169,6 @@ def busqueda_filtreada(request):
 				json.dumps({'nombre': cliente.TipoIdentificacion, 'descripcion': cliente.numeroId, 'url': cliente.primeroNombre,'nombres': cliente.TipoIdentificacion, 'descripcions': cliente.numeroId, 'urls': cliente.primeroNombre }),
 				content_type="application/json; charset=uft8"
 				)
-				
-
 				json.dumps({'identifier': 'id','items': [col1: "normal", col2: "normal", col3: "normal", col4: "normal",col5: "normal", col6: "normal"]})
 		{"""
 
@@ -178,7 +176,7 @@ def busqueda_filtreada(request):
 		myList=[]
 		i=0
 		for dato in chofer:
-			myList.append({"nameh":dato.Codigo,"nameh1":dato.Nombre,"nameh2":dato.CodigoPlu,"nameh3":dato.Tipoarticulo,"nameh4":dato.PrecioVent1,"nameh5":dato.PrecioVent2,"Codigo":dato.PrecioVent3,"nameh6":dato.IvaVentas,"nameh7":dato.DtoFacturacion,"nameh8":dato.CostoVenta,"nameh9":dato.CostoBase,"nameh10":dato.CtaInventario})
+			myList.append({"nameh":dato.Codigo,"nameh1":dato.Nombre,"nameh2":dato.CodigoPlu,"nameh3":dato.Tipoarticulo,"nameh4":dato.PrecioVent1,"nameh5":dato.PrecioVent2,"nameh6":dato.PrecioVent3,"nameh7":dato.IvaVentas,"nameh8":dato.DtoFacturacion,"nameh9":dato.CostoBase,"nameh10":dato.CtaInventario})
 			i=i+1
 		
 		return HttpResponse(
