@@ -1,7 +1,7 @@
 define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/TextBox','dijit/form/Button','dojox/grid/DataGrid','dojo/_base/xhr'], function(Memory,declare,Dialog,Button,DataGrid,xhr){
     
     return declare(null,{ 
-    constructor: function(nuevoArtic,articlev,array){
+    constructor: function(nuevoArtic,articlev,array,AndOrWriteStore){
 
 	    this.catart = new Dialog({
 	        title: "Catalogo de articulos", 
@@ -14,7 +14,8 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
 	    var grida = new dojox.grid.DataGrid({
 	        id: 'grida',
 	        store: storecx,
-	        structure: [{name:"Codigo", field:"nameh", width: "200px",editable:false},{name:"Nombre", field:"nameh1", width: "200px",editable:true},{name:"Codigo pos", field:"nameh2", width: "200px",editable:true},{name:"Tipo/Linea", field:"nameh3", width: "200px",editable:true},{name:"Precio A", field:"nameh4", width: "200px",editable:true},{name:"Precio B", field:"nameh5", width: "200px",editable:false},{name:"Precio C", field:"nameh6", width: "200px",editable:false},{name:"Iva", field:"nameh7", width: "200px",editable:false},{name:"Descuento", field:"nameh8", width: "200px",editable:false},{name:"Costo", field:"nameh9", width: "200px",editable:false},{name:"Cuenta", field:"nameh10", width: "200px",editable:false}]
+	        structure: [{name:"Codigo", field:"nameh", width: "200px",editable:false},{name:"Nombre", field:"nameh1", width: "200px",editable:true},{name:"Codigo pos", field:"nameh2", width: "200px",editable:true},{name:"Tipo/Linea", field:"nameh3", width: "200px",editable:true},{name:"Precio A", field:"nameh4", width: "200px",editable:true},{name:"Precio B", field:"nameh5", width: "200px",editable:false},{name:"Precio C", field:"nameh6", width: "200px",editable:false},{name:"Iva", field:"nameh7", width: "200px",editable:false},{name:"Descuento", field:"nameh8", width: "200px",editable:false},{name:"Costo", field:"nameh9", width: "200px",editable:false},{name:"Cuenta", field:"nameh10", width: "200px",editable:false}],
+	    	queryOptions: {ignoreCase: true}
 	    }); // {"Cantidad", "Marca", "Referencia", "Detalle", "Rueda", "Valor unitario", "Valor total", "Valor con descuento"};---,type: dojox.grid.cells.TextBox, onKeyUp: function (evt) {totar.setValue(canti.get("value")*this.get("value")); updateAllh();}
 
 	    grida.placeAt("gridDiva");
@@ -33,7 +34,7 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
                                       items: obj
                                  }
                             
-                            storecx = new dojo.data.ItemFileWriteStore({data: dataxc}); 
+                            storecx = new AndOrWriteStore({data: dataxc}); 
                             grida.setStore(storecx); 
                             
                             //dom.byId("contentNode").innerHTML = newContent;
@@ -216,8 +217,11 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
             name: "busa",
             value: "" /* no or empty value! */,
             placeHolder: "",
-            onKeyUp: function (evt) {     
-                grida.filter({nameh: "*"+this.get("value")+"*" , nameh1: "*"+this.get("value")+"*"}); 
+            onKeyUp: function (evt) {
+            	//{complexQuery: "Column_A: '*test*' OR Column_B: '*'"}     
+                //grida.filter({nameh: "*"+this.get("value")+"*" , nameh1: "*"+this.get("value")+"*"},true); 
+                grida.filter({complexQuery: ( "nameh: '*"+this.get('value')+"*' OR nameh1: '*"+this.get('value')+"*'")},true); 
+
                 if(this.get("value")==""){
                     llenaInt();
                 }   
