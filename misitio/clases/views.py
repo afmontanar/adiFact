@@ -88,15 +88,10 @@ def guardar_articuloe(request):
 		DtoFacturacioni = request.GET['DtoFacturacion']
 		FechaEntradai = request.GET['FechaEntrada']
 		Lotei = request.GET['Lote']
-		print(co)
 		try:
-			u = Articulo.objects.get(pk='1')
-			print("pasamos por aqui")
+			u = Articulo.objects.get(pk=co)
 			u.Nombre=no
-			print("pasamos por aqui1")
 			u.TipoCodigo=tc
-
-
 			u.TipoInventario=ti
 			u.CodigoPlu=cu
 			u.NombrePlu=nu
