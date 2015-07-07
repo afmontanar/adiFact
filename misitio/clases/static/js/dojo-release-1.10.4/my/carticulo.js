@@ -1,14 +1,31 @@
 define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/TextBox','dijit/form/Button','dojox/grid/DataGrid','dojo/_base/xhr'], function(Memory,declare,Dialog,Button,DataGrid,xhr){
     
     return declare(null,{ 
-    constructor: function(nuevoArtic,articlev,array,AndOrWriteStore,keys,dom,on){
+    constructor: function(nuevoArtic,articlev,array,AndOrWriteStore,keys,dom,on,Toolbar){
+
+
+    
 
 	    this.catart = new Dialog({
 	        title: "Catalogo de articulos", 
-	        content: "<form id='traverseForm'><span id='toolbar'></span><div><legend style='font-weight: bold;'>Seleccion</legend><div class='seleccion'><button id='nuevo' type='button'>[F2]-Nuevo</button><button id='editar' type='button'>[F3]-Editar</button><button id='partes' type='button'>[F5]-Partes</button><button id='NomTxt' type='button'>[F6]-NomTxt</button><button id='borrar' type='button'>[F7]-Borrar</button><button id='stock' type='button'>[F9]-Stock</button><button id='precios' type='button'>[F8]-Precios</button><button id='imprimir' type='button'>[F10]-imprimir</button><div/><div class='seleccion1'><button id='selection' type='button'>[Ent]-Seleccion</button><button id='salirc' type='button'>[Esc]-Salir</button><div/><div class='bjh'><label for='estade'>Estado</label><input type='text' name='estade' value='' id='estade'></input><label for='ivani'>Ivaln</label><input type='text' name='ivani' value='' id='ivani'></input><label for='desto'>%Dto</label><input type='text' name='desto' value='' id='desto'></input><label for='ivac'>%Iva</label><input type='text' name='ivac' value='' id='ivac'></input><label for='prec1'>Precio1</label><input type='text' name='prec1' value='' id='prec1'></input><label for='prec2'>Precio2</label><input type='text' name='prec2' value='' id='prec2'></input><label for='prec3'>Precio3</label><input type='text' name='prec3' value='' id='prec3'></input></div><div class ='bjh1'><label for='bog1'>Bodega1</label><input type='text' name='bog1' value='' id='bog1'></input><label for='bog2'>Bodega2</label><input type='text' name='bog2' value='' id='bog2'></input><label for='bog3'>Bodega3</label><input type='text' name='bog3' value='' id='bog3'></input><label for='bog4'>Bodega4</label><input type='text' name='bog4' value='' id='bog4'></input><label for='bog5'>Bodega5</label><input type='text' name='bog5' value='' id='bog5'></input><div/><div/><div/><div><legend style='font-weight: bold;'>Catalogo de articulos</legend><div class='busq'><div><label for='cnomp'>Buscar</label><input type='text' name='busa' value='' id='busa'></input></div></div><div class='grida'><div id='gridDiva'></div></div></div></form>",      
+	        content: "<script>require(['dojo/parser', 'dijit/Toolbar', 'dijit/form/Button', 'dijit/form/ToggleButton', 'dijit/ToolbarSeparator']);</script><form id='traverseForm'><div id='toolbar1' data-dojo-type='dijit/Toolbar' ><div data-dojo-type='dijit/form/Button' id='toolbar1.cut' data-dojo-props=\" showLabel:true\">[F2-Nuevo]</div ><div data-dojo-type='dijit/form/Button' id='toolbar1.copy' data-dojo-props=\"iconClass:' dijitEditorIcon dijitEditorIconCopy', showLabel:false\">Copy</div ><div data-dojo-type='dijit/form/Button' id='toolbar1.paste' data-dojo-props=\"iconClass:' dijitEditorIcon dijitEditorIconPaste', showLabel:false\">Paste</div ><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/ToggleButton' id='toolbar1.bold'  data-dojo-props=\"iconClass:' dijitEditorIcon dijitEditorIconBold', showLabel:false\">Bold</div></div><div id='toolbar'></div><div><legend style='font-weight: bold;'>Seleccion</legend><div class='seleccion'><button id='nuevo' type='button'>[F2]-Nuevo</button><button id='editar' type='button'>[F3]-Editar</button><button id='partes' type='button'>[F5]-Partes</button><button id='NomTxt' type='button'>[F6]-NomTxt</button><button id='borrar' type='button'>[F7]-Borrar</button><button id='stock' type='button'>[F9]-Stock</button><button id='precios' type='button'>[F8]-Precios</button><button id='imprimir' type='button'>[F10]-imprimir</button><div/><div class='seleccion1'><button id='selection' type='button'>[Ent]-Seleccion</button><button id='salirc' type='button'>[Esc]-Salir</button><div/><div class='bjh'><label for='estade'>Estado</label><input type='text' name='estade' value='' id='estade'></input><label for='ivani'>Ivaln</label><input type='text' name='ivani' value='' id='ivani'></input><label for='desto'>%Dto</label><input type='text' name='desto' value='' id='desto'></input><label for='ivac'>%Iva</label><input type='text' name='ivac' value='' id='ivac'></input><label for='prec1'>Precio1</label><input type='text' name='prec1' value='' id='prec1'></input><label for='prec2'>Precio2</label><input type='text' name='prec2' value='' id='prec2'></input><label for='prec3'>Precio3</label><input type='text' name='prec3' value='' id='prec3'></input></div><div class ='bjh1'><label for='bog1'>Bodega1</label><input type='text' name='bog1' value='' id='bog1'></input><label for='bog2'>Bodega2</label><input type='text' name='bog2' value='' id='bog2'></input><label for='bog3'>Bodega3</label><input type='text' name='bog3' value='' id='bog3'></input><label for='bog4'>Bodega4</label><input type='text' name='bog4' value='' id='bog4'></input><label for='bog5'>Bodega5</label><input type='text' name='bog5' value='' id='bog5'></input><div/><div/><div/><div><legend style='font-weight: bold;'>Catalogo de articulos</legend><div class='busq'><div><label for='cnomp'>Buscar</label><input type='text' name='busa' value='' id='busa'></input></div></div><div class='grida'><div id='gridDiva'></div></div></div></form>",      
 	        style: "width: 1000px;"
     	});
 		
+
+		var toolbar = new Toolbar({}, "toolbar");
+    		array.forEach(["Cut", "Copy", "Paste","Cut", "Copy", "Paste","Copy", "Paste"], function(label,button){
+        	var button = new Button({
+	            // note: should always specify a label, for accessibility reasons.
+	            // Just set showLabel=false if you don't want it to be displayed normally
+            	label: label,
+            	showLabel: false,
+            	iconClass: "dijitEditorIcon dijitEditorIcon"+label
+        	}).startup();
+        	//toolbar.addChild(button);
+    	});
+    	toolbar.startup();
+
 		on(dom.byId("traverseForm"), "keypress", function(evt){
 		    if(evt.charCode==112){
 		    	nuevoArtic.nuevoArti.show();

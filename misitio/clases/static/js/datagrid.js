@@ -1,17 +1,17 @@
-require(['dojo/_base/declare','my/nuevoArticulo','my/gpoArticulo','my/carticulo','my/editArticulo','dijit/form/DateTextBox', 'dojo/date/locale','dojo/_base/array','dojo/_base/json','dijit/DropDownMenu','dijit/MenuItem','dijit/Menu','dijit/PopupMenuBarItem','dijit/MenuBar','dijit/Dialog','dojo/store/JsonRest','dojo/data/ObjectStore','dojo/_base/lang', 'dojox/grid/DataGrid', 'dojo/data/ItemFileWriteStore', 'dojox/data/AndOrWriteStore', 'dijit/form/Button',"dojo/_base/xhr", "dojo/store/Memory", "dijit/form/ComboBox",'dojo/dom','dojo/on','dojo/domReady!','dijit/form/ValidationTextBox',"dojo/keys",'dijit/Toolbar'],
-function(declare, nuevoArticulo, gpoArticulo, carticulo, editArticulo, DateTextBox, locale, array,json,DropDownMenu,MenuItem,Menu,PopupMenuBarItem,MenuBar,Dialog,JsonRest,ObjectStore,lang, DataGrid, ItemFileWriteStore, AndOrWriteStore, Button, xhr,Memory, ComboBox, dom, on, domReady, ValidationTextBox,keys,Toolbar) {
+require(['dojo/_base/declare','my/nuevoArticulo','my/gpoArticulo','my/carticulo','my/editArticulo','dijit/form/DateTextBox', 'dojo/date/locale','dojo/_base/array','dojo/_base/json','dijit/DropDownMenu','dijit/MenuItem','dijit/Menu','dijit/PopupMenuBarItem','dijit/MenuBar','dijit/Dialog','dojo/store/JsonRest','dojo/data/ObjectStore','dojo/_base/lang', 'dojox/grid/DataGrid', 'dojo/data/ItemFileWriteStore', 'dojox/data/AndOrWriteStore', 'dijit/form/Button',"dojo/_base/xhr", "dojo/store/Memory", "dijit/form/ComboBox",'dojo/dom','dojo/on','dijit/form/ValidationTextBox',"dojo/keys",'dijit/Toolbar','dojo/domReady!'],
+function(declare, nuevoArticulo, gpoArticulo, carticulo, editArticulo, DateTextBox, locale, array,json,DropDownMenu,MenuItem,Menu,PopupMenuBarItem,MenuBar,Dialog,JsonRest,ObjectStore,lang, DataGrid, ItemFileWriteStore, AndOrWriteStore, Button, xhr,Memory, ComboBox, dom, on, ValidationTextBox,keys,Toolbar,domReady) {
 
     var nuevoArtic = new nuevoArticulo();
     var gpoArticuloc = new gpoArticulo(); 
     var articlev = new editArticulo();
-    var carticulow = new carticulo(nuevoArtic,articlev,array,AndOrWriteStore,keys,dom,on);
+    var carticulow = new carticulo(nuevoArtic,articlev,array,AndOrWriteStore,keys,dom,on,Toolbar);
     
     /*
+    
     */
 
     articlev.llenarTablac(carticulow);
     nuevoArtic.llenarTablac(carticulow);
-
 
 
     var pMenuBar = new MenuBar({});
@@ -19,7 +19,7 @@ function(declare, nuevoArticulo, gpoArticulo, carticulo, editArticulo, DateTextB
 
     pSubMenu.addChild(new MenuItem({
         label: "Catalogo de articulos",
-        onClick:function(){carticulow.llenarTabla();carticulow.catart.show();}
+        onClick:function(){ carticulow.llenarTabla();carticulow.catart.show();}
     }));
 
     pSubMenu.addChild(new MenuItem({
