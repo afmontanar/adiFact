@@ -14,6 +14,4 @@ urlpatterns = patterns('',
     url(r'^guardar_chofer/$', views.guardar_chofer, name='guardar_chofer'),
   	url(r'^busqueda_filtreada/$', views.busqueda_filtreada, name='busqueda_filtreada'),
   	url(r'^tener_Articulo/$', views.tener_Articulo, name='tener_Articulo')
-  	
-  
 )

@@ -1,30 +1,24 @@
 define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/TextBox','dijit/form/Button','dojox/grid/DataGrid','dojo/_base/xhr'], function(Memory,declare,Dialog,Button,DataGrid,xhr){
     
     return declare(null,{ 
-    constructor: function(nuevoArtic,articlev,array,AndOrWriteStore,keys,dom,on,Toolbar){
-
-
-    
-
-	    this.catart = new Dialog({
-	        title: "Catalogo de articulos", 
-	        content: "<script>require(['dojo/parser', 'dijit/Toolbar', 'dijit/form/Button', 'dijit/form/ToggleButton', 'dijit/ToolbarSeparator']);</script><form id='traverseForm'><div id='toolbar1' data-dojo-type='dijit/Toolbar' ><div data-dojo-type='dijit/form/Button' id='toolbar1.cut' data-dojo-props=\" showLabel:true\">[F2-Nuevo]</div ><div data-dojo-type='dijit/form/Button' id='toolbar1.copy' data-dojo-props=\"iconClass:' dijitEditorIcon dijitEditorIconCopy', showLabel:false\">Copy</div ><div data-dojo-type='dijit/form/Button' id='toolbar1.paste' data-dojo-props=\"iconClass:' dijitEditorIcon dijitEditorIconPaste', showLabel:false\">Paste</div ><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/ToggleButton' id='toolbar1.bold'  data-dojo-props=\"iconClass:' dijitEditorIcon dijitEditorIconBold', showLabel:false\">Bold</div></div><div id='toolbar'></div><div><legend style='font-weight: bold;'>Seleccion</legend><div class='seleccion'><button id='nuevo' type='button'>[F2]-Nuevo</button><button id='editar' type='button'>[F3]-Editar</button><button id='partes' type='button'>[F5]-Partes</button><button id='NomTxt' type='button'>[F6]-NomTxt</button><button id='borrar' type='button'>[F7]-Borrar</button><button id='stock' type='button'>[F9]-Stock</button><button id='precios' type='button'>[F8]-Precios</button><button id='imprimir' type='button'>[F10]-imprimir</button><div/><div class='seleccion1'><button id='selection' type='button'>[Ent]-Seleccion</button><button id='salirc' type='button'>[Esc]-Salir</button><div/><div class='bjh'><label for='estade'>Estado</label><input type='text' name='estade' value='' id='estade'></input><label for='ivani'>Ivaln</label><input type='text' name='ivani' value='' id='ivani'></input><label for='desto'>%Dto</label><input type='text' name='desto' value='' id='desto'></input><label for='ivac'>%Iva</label><input type='text' name='ivac' value='' id='ivac'></input><label for='prec1'>Precio1</label><input type='text' name='prec1' value='' id='prec1'></input><label for='prec2'>Precio2</label><input type='text' name='prec2' value='' id='prec2'></input><label for='prec3'>Precio3</label><input type='text' name='prec3' value='' id='prec3'></input></div><div class ='bjh1'><label for='bog1'>Bodega1</label><input type='text' name='bog1' value='' id='bog1'></input><label for='bog2'>Bodega2</label><input type='text' name='bog2' value='' id='bog2'></input><label for='bog3'>Bodega3</label><input type='text' name='bog3' value='' id='bog3'></input><label for='bog4'>Bodega4</label><input type='text' name='bog4' value='' id='bog4'></input><label for='bog5'>Bodega5</label><input type='text' name='bog5' value='' id='bog5'></input><div/><div/><div/><div><legend style='font-weight: bold;'>Catalogo de articulos</legend><div class='busq'><div><label for='cnomp'>Buscar</label><input type='text' name='busa' value='' id='busa'></input></div></div><div class='grida'><div id='gridDiva'></div></div></div></form>",      
+    constructor: function(nuevoArtic,articlev,array,AndOrWriteStore,keys,ContentPane,on,dom){
+	    		
+	    this.catart = new Dialog({//<div id='toolbar1' data-dojo-type='dijit/Toolbar' ><div data-dojo-type='dijit/form/Button' id='toolbar1.cut' data-dojo-props=\" showLabel:true\">[F2-Nuevo]</div ><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.copy' data-dojo-props=\" showLabel:true\">[F3-Editar]</div ><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.paste' data-dojo-props=\" showLabel:true\">[F5-Partes]</div ><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.bold'  data-dojo-props=\" showLabel:true\">[F6-NomTxt]</div><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.borrar'  data-dojo-props=\" showLabel:true\">[F7]-Borrar</div><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.stock'  data-dojo-props=\" showLabel:true\">[F9]-Stock</div><span data-dojo-type='dijit/ToolbarSeparator'></span><div data-dojo-type='dijit/form/Button' id='toolbar1.precio'  data-dojo-props=\" showLabel:true\">[F8]-Precios</div><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.imprimi'  data-dojo-props=\" showLabel:true\">[F10]-Imprimir</div><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.selec'  data-dojo-props=\" showLabel:true\">[Ent]-Seleccion</div><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.salic'  data-dojo-props=\" showLabel:true\">[Esc]-Salir</div></div><div id='toolbar'></div>
+	        title: "Catalogo de articulos",//<div class='seleccion'><button id='nuevo' type='button'>[F2]-Nuevo</button><button id='editar' type='button'>[F3]-Editar</button><button id='partes' type='button'>[F5]-Partes</button><button id='NomTxt' type='button'>[F6]-NomTxt</button><button id='borrar' type='button'>[F7]-Borrar</button><button id='stock' type='button'>[F9]-Stock</button><button id='precios' type='button'>[F8]-Precios</button><button id='imprimir' type='button'>[F10]-imprimir</button><div/><div class='seleccion1'><button id='selection' type='button'>[Ent]-Seleccion</button><button id='salirc' type='button'>[Esc]-Salir</button><div/> 
+	        content: "<form id='traverseForm'><div><legend style='font-weight: bold;'>Seleccion</legend><div id='targetIE'></div><div id='targetID'></div><div/><div/><div><legend style='font-weight: bold;'>Catalogo de articulos</legend><div class='busq'><div><label for='cnomp'>Buscar</label><input type='text' name='busa' value='' id='busa'></input></div></div><div class='grida'><div id='gridDiva'></div></div></div></form>",      
 	        style: "width: 1000px;"
     	});
 		
+		var panelbus = new ContentPane({
+		      //content:"<div class='bjh'><label for='estade'>Estado</label><input type='text' name='estade' value='' id='estade'></input><label for='ivani'>Ivaln</label><input type='text' name='ivani' value='' id='ivani'></input><label for='desto'>%Dto</label><input type='text' name='desto' value='' id='desto'></input><label for='ivac'>%Iva</label><input type='text' name='ivac' value='' id='ivac'></input><label for='prec1'>Precio1</label><input type='text' name='prec1' value='' id='prec1'></input><label for='prec2'>Precio2</label><input type='text' name='prec2' value='' id='prec2'></input><label for='prec3'>Precio3</label><input type='text' name='prec3' value='' id='prec3'></input></div><div class ='bjh1'><label for='bog1'>Bodega1</label><input type='text' name='bog1' value='' id='bog1'></input><label for='bog2'>Bodega2</label><input type='text' name='bog2' value='' id='bog2'></input><label for='bog3'>Bodega3</label><input type='text' name='bog3' value='' id='bog3'></input><label for='bog4'>Bodega4</label><input type='text' name='bog4' value='' id='bog4'></input><label for='bog5'>Bodega5</label><input type='text' name='bog5' value='' id='bog5'></input><div/>",
+		      content:"<div class='bjh'><input type='text' name='estade' value='' id='estade'></input><input type='text' name='ivani' value='' id='ivani'></input><input type='text' name='desto' value='' id='desto'></input><input type='text' name='ivac' value='' id='ivac'></input><input type='text' name='prec1' value='' id='prec1'></input><input type='text' name='prec2' value='' id='prec2'></input><input type='text' name='prec3' value='' id='prec3'></input><input type='text' name='bog1' value='' id='bog1'></input><input type='text' name='bog2' value='' id='bog2'></input><input type='text' name='bog3' value='' id='bog3'></input><input type='text' name='bog4' value='' id='bog4'></input><input type='text' name='bog5' value='' id='bog5'></input></div><div class ='bjh1'><div/>",
+		      style:"height:50%; background-color: #d0e9fc;"
+	    }, "targetID").startup();
 
-		var toolbar = new Toolbar({}, "toolbar");
-    		array.forEach(["Cut", "Copy", "Paste","Cut", "Copy", "Paste","Copy", "Paste"], function(label,button){
-        	var button = new Button({
-	            // note: should always specify a label, for accessibility reasons.
-	            // Just set showLabel=false if you don't want it to be displayed normally
-            	label: label,
-            	showLabel: false,
-            	iconClass: "dijitEditorIcon dijitEditorIcon"+label
-        	}).startup();
-        	//toolbar.addChild(button);
-    	});
-    	toolbar.startup();
+		var panelbotton = new ContentPane({
+		      content:"<div class='seleccion'><button id='nuevo' type='button'>[F2]-Nuevo</button><button id='editar' type='button'>[F3]-Editar</button><button id='partes' type='button'>[F5]-Partes</button><button id='NomTxt' type='button'>[F6]-NomTxt</button><button id='borrar' type='button'>[F7]-Borrar</button><button id='stock' type='button'>[F9]-Stock</button><button id='precios' type='button'>[F8]-Precios</button><button id='imprimir' type='button'>[F10]-imprimir</button><div/><div class='seleccion1'><button id='selection' type='button'>[Ent]-Seleccion</button><button id='salirc' type='button'>[Esc]-Salir</button><div/>",
+		      style:"height:50%; background-color: #efefef;border: 1px solid #b5bcc7;"
+	    }, "targetIE").startup();
 
 		on(dom.byId("traverseForm"), "keypress", function(evt){
 		    if(evt.charCode==112){
@@ -72,88 +66,91 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
         };
 
         var llenaInt = this.llenarTabla ;
+
+        //</label><input type='text' name='bog4' value='' id='bog4'></input><label for='bog5'>Bodega5</label><input type='text' name='bog5' value='' id='bog5'></input><div/>",
+		     
 		var estade = new dijit.form.TextBox({
 	            name: "estade",
 	            value: "" /* no or empty value! */,
-	            placeHolder: "",
-	            style: "width: 4em;"
+	            placeHolder: "Estado",
+	            style: "width: 6em;"
 	        }, "estade");
 
 	    var ivani = new dijit.form.TextBox({
 	            name: "ivani",
 	            value: "" /* no or empty value! */,
-	            placeHolder: "",
-	            style: "width: 4em;"
+	            placeHolder: "Ivaln",
+	            style: "width: 6em;"
 	        }, "ivani");
 
 	    var desto = new dijit.form.TextBox({
 	            name: "desto",
 	            value: "" /* no or empty value! */,
-	            placeHolder: "",
-	            style: "width: 4em;"
+	            placeHolder: "%Dto",
+	            style: "width: 6em;"
 	        }, "desto");
 
 	    var ivac = new dijit.form.TextBox({
 	            name: "ivac",
 	            value: "" /* no or empty value! */,
-	            placeHolder: "",
-	            style: "width: 4em;"
+	            placeHolder: "%Iva",
+	            style: "width: 6em;"
 	        }, "ivac");
 
 	    var prec1 = new dijit.form.TextBox({
 	            name: "prec1",
 	            value: "" /* no or empty value! */,
-	            placeHolder: "",
-	            style: "width: 4em;"
+	            placeHolder: "Precio1",
+	            style: "width: 6em;"
 	        }, "prec1");
 
 	    var prec2 = new dijit.form.TextBox({
-	            name: "prec2",
+	            name: "Precio2",
 	            value: "" /* no or empty value! */,
-	            placeHolder: "",
-	            style: "width: 4em;"
+	            placeHolder: "Precio2",
+	            style: "width: 6em;"
 	        }, "prec2");
 
 	    var prec3 = new dijit.form.TextBox({
-	            name: "prec3",
+	            name: "Precio3",
 	            value: "" /* no or empty value! */,
-	            placeHolder: "",
-	            style: "width: 4em;"
+	            placeHolder: "Precio3",
+	            style: "width: 6em;"
 	        }, "prec3");
 
 	    var bog1 = new dijit.form.TextBox({
 	            name: "bog1",
 	            value: "" /* no or empty value! */,
-	            placeHolder: "",
-	            style: "width: 4em;"
+	            placeHolder: "Bodega1",
+	            style: "width: 6em;"
 	        }, "bog1");
 
 	    var bog2 = new dijit.form.TextBox({
 	            name: "bog2",
 	            value: "" /* no or empty value! */,
-	            placeHolder: "",
-	            style: "width: 4em;"
+	            placeHolder: "Bodega2",
+	            style: "width: 6em;"
 	        }, "bog2");
 
 	    var bog3 = new dijit.form.TextBox({
 	            name: "bog3",
 	            value: "" /* no or empty value! */,
-	            placeHolder: "",
-	            style: "width: 4em;"
+	            placeHolder: "Bodega3",
+	            style: "width: 6em;"
 	        }, "bog3");
 
 	    var bog4 = new dijit.form.TextBox({
 	            name: "bog4",
 	            value: "" /* no or empty value! */,
-	            placeHolder: "",
-	            style: "width: 4em;"
+	            placeHolder: "Bodega4",
+	            style: "width: 6em;"
 	        }, "bog4");
 
 	    var bog5 = new dijit.form.TextBox({
 	            name: "bog5",
 	            value: "" /* no or empty value! */,
-	            placeHolder: "",
-	            style: "width: 4em;"
+	            placeHolder: "Bodega5",
+	            style: "width: 6em;"
 	        }, "bog5");
 
 			var buttos = new dijit.form.Button({
