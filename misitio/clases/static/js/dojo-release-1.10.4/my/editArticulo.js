@@ -13,6 +13,15 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
 			cartivia = carticulow;
 		}
 		
+	this.enviarNuevo = function(cnewi,nomnew,tipcnew,tipcinv,codnplu,nomnplu){
+			codiar.setValue(cnewi);
+			nomar.setValue(nomnew);
+			ticodr.setValue(tipcnew);
+			tipinv.setValue(tipcinv);
+			codplu.setValue(codnplu);
+			nomplu.setValue(nomnplu);
+		}
+
 	 var dialocatr = this.catart;
 	 var codiar = new dijit.form.TextBox({
             name: "codiar",

@@ -13,6 +13,12 @@ define(["dojo/_base/declare", 'dijit/Dialog', 'dijit/form/TextBox','dojo/store/M
 		this.llenarTablac = function(carticulow){
 			cartivia = carticulow;
 		}
+
+		var details= null;
+
+		this.llenardetalle = function(detalle){
+			details = detalle;
+		}
 		
 	   var conecdialog = this.nuevoArti;
 
@@ -42,7 +48,7 @@ define(["dojo/_base/declare", 'dijit/Dialog', 'dijit/form/TextBox','dojo/store/M
             value: "",
             store: statew,
             searchAttr: "name",
-            style: "width: 3em;"
+            style: "width: 10em;"
        }, "tipcnew");
 
 	  var statev = new dojo.store.Memory({
@@ -61,7 +67,7 @@ define(["dojo/_base/declare", 'dijit/Dialog', 'dijit/form/TextBox','dojo/store/M
             value: "",
             store: statev,
             searchAttr: "name",
-            style: "width: 3em;"
+            style: "width: 10em;"
        }, "tipcinv");
 
 	   var codnplu = new dijit.form.TextBox({
@@ -105,13 +111,21 @@ define(["dojo/_base/declare", 'dijit/Dialog', 'dijit/form/TextBox','dojo/store/M
 
 		                             if(newContent=='{"respuesta": "si"}'){
 		                                alert("Guardado correctamente");
+		                                 //verifico si es general o detalle
+		                                 if(tipcnew.value=="Detalle"){
+		                                 	//envio los datos a detalle
+		                                 	details.enviarNuevo(cnewi.value,nomnew.value,tipcnew.value,tipcinv.value,codnplu.value,nomnplu.value);
+		                                 	//llamo detalle
+		                                 	details.catart.show();
+		                                 }
 		                                 cnewi.reset();
 		                                 nomnew.reset();
 		                                 tipcnew.reset();
 		                                 tipcinv.reset();
 		                                 codnplu.reset();
 		                                 nomnplu.reset();
-		                                 cartivia.llenarTabla()
+		                                 cartivia.llenarTabla();
+		                                 conecdialog.hide();
 		                             }else{
 		                                alert("Este articulo ya existe");
 		                                 cnewi.reset();

@@ -11,6 +11,7 @@ function(declare, nuevoArticulo, gpoArticulo, carticulo, editArticulo, DateTextB
 
     articlev.llenarTablac(carticulow);
     nuevoArtic.llenarTablac(carticulow);
+    nuevoArtic.llenardetalle(articlev);
 
 
     var pMenuBar = new MenuBar({});
