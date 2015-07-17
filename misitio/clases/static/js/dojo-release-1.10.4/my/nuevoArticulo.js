@@ -6,7 +6,7 @@ define(["dojo/_base/declare", 'dijit/Dialog', 'dijit/form/TextBox','dojo/store/M
 	        title: "Nuevo Articulo",
 	        content: "<form><legend style='font-weight: bold;'>Datos del articulo</legend><div class='newart'><label for='cnewi'>Codigo</label><input type='text' name='cnewi' value='' id='cnewi'></input></div><div class='newart1'><label for='nomnew'>Nombre</label><input type='text' name='nomnew' value='' id='nomnew'></input></div><div class='newart2'><label for='tipcnew'>Tipo de codigo</label><input type='text' name='tipcnew' value='' id='tipcnew'></input></div><div class='newart3'><label for='tipcinv'>Tipo de inventario</label><input type='text' name='tipcinv' value='' id='tipcinv'></input></div><div class='newart4'><label for='codnplu'>Codigo plu</label><input type='text' name='codnplu' value='' id='codnplu'></input></div><div class='newart4'><label for='nomnplu'>Nombre plu</label><input type='text' name='nomnplu' value='' id='nomnplu'></input></div><div class='newart6'><button id='nuevox' type='button'>[Esc]-Salir</button></div><div class='newart5'><button id='nuevoa' type='button'>[Ent]-Aceptar</button></div></form>",  
 	        style: "width: 500px;"
-	   });
+	       });
 		
 		var cartivia= null;
 

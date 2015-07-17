@@ -1,7 +1,7 @@
 define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/TextBox','dijit/form/Button','dojox/grid/DataGrid','dojo/_base/xhr'], function(Memory,declare,Dialog,Button,DataGrid,xhr){
     
     return declare(null,{ 
-    constructor: function(nuevoArtic,articlev,array,AndOrWriteStore,keys,ContentPane,on,dom){
+    constructor: function(nuevoArtic,articlev,ecuentas,array,AndOrWriteStore,keys,ContentPane,on,dom){
 	    		
 	    this.catart = new Dialog({//<div id='toolbar1' data-dojo-type='dijit/Toolbar' ><div data-dojo-type='dijit/form/Button' id='toolbar1.cut' data-dojo-props=\" showLabel:true\">[F2-Nuevo]</div ><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.copy' data-dojo-props=\" showLabel:true\">[F3-Editar]</div ><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.paste' data-dojo-props=\" showLabel:true\">[F5-Partes]</div ><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.bold'  data-dojo-props=\" showLabel:true\">[F6-NomTxt]</div><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.borrar'  data-dojo-props=\" showLabel:true\">[F7]-Borrar</div><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.stock'  data-dojo-props=\" showLabel:true\">[F9]-Stock</div><span data-dojo-type='dijit/ToolbarSeparator'></span><div data-dojo-type='dijit/form/Button' id='toolbar1.precio'  data-dojo-props=\" showLabel:true\">[F8]-Precios</div><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.imprimi'  data-dojo-props=\" showLabel:true\">[F10]-Imprimir</div><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.selec'  data-dojo-props=\" showLabel:true\">[Ent]-Seleccion</div><span data-dojo-type='dijit/ToolbarSeparator'></span ><div data-dojo-type='dijit/form/Button' id='toolbar1.salic'  data-dojo-props=\" showLabel:true\">[Esc]-Salir</div></div><div id='toolbar'></div>
 	        title: "Catalogo de articulos",//<div class='seleccion'><button id='nuevo' type='button'>[F2]-Nuevo</button><button id='editar' type='button'>[F3]-Editar</button><button id='partes' type='button'>[F5]-Partes</button><button id='NomTxt' type='button'>[F6]-NomTxt</button><button id='borrar' type='button'>[F7]-Borrar</button><button id='stock' type='button'>[F9]-Stock</button><button id='precios' type='button'>[F8]-Precios</button><button id='imprimir' type='button'>[F10]-imprimir</button><div/><div class='seleccion1'><button id='selection' type='button'>[Ent]-Seleccion</button><button id='salirc' type='button'>[Esc]-Salir</button><div/> 
@@ -214,7 +214,7 @@ define(["dojo/store/Memory","dojo/_base/declare",'dijit/Dialog', 'dijit/form/Tex
 	},"editar");
 
 	var button = new dijit.form.Button({
-		onClick: function () {},
+		onClick: function () {ecuentas.estadoCuenta.show();},
 		style: "width: 6em;"
 	},"partes").startup();
 
