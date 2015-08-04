@@ -18,6 +18,9 @@ class ClienteForm(ModelForm):
 def clientes(request):
 	return render_to_response('cliente.html', {'nothing': 'nothing'}, context_instance=RequestContext(request))
 
+def movile(request):
+	return render_to_response('appmovileadi.html', {'nothing': 'nothing'}, context_instance=RequestContext(request))
+
 def clienteu(request):
 	return render_to_response('untitled.html', {'nothing': 'nothing'}, context_instance=RequestContext(request))
 

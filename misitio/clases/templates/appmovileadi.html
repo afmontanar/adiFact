@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<!--
+    Dojo Mobile tutorial | Flickrview | Part I
+-->
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title> Adicnet mobile </title>
+    <!-- application stylesheet will go here -->
+    <!-- dynamically apply native visual theme according to the browser user agent -->
+    <script src="{{STATIC_URL}}js/dojo-release-1.10.4/dojox/mobile/deviceTheme.js"></script>
+    <!-- dojo configuration options -->
+    <script>
+        dojoConfig = {
+            async: true,
+            parseOnLoad: false
+        };
+    </script>
+    <!-- dojo bootstrap -->
+    <script src="{{STATIC_URL}}js/dojo-release-1.10.4/dojo/dojo.js"></script>
+    <!-- dojo application code -->
+    <script>
+        require([
+            "dojox/mobile/parser",
+            "dojox/mobile/compat",
+            "dojo/domReady!",
+            "dojox/mobile/View",
+            "dojox/mobile/Heading",
+            "dojox/mobile/RoundRectList",
+            "dojox/mobile/ListItem",
+            "dojox/mobile/Switch",
+            "dojox/mobile/RoundRectCategory",
+            "dojox/mobile/RoundRect",
+            "dojox/mobile/FormLayout",
+            "dojox/mobile/TextBox",
+            "dojox/mobile/RadioButton",
+            "dijit/form/DataList",
+            "dojox/mobile/ComboBox"
+        ], function (parser) {
+            // now parse the page for widgets
+            parser.parse();
+        });
+    </script>
+</head>
+
+<body style="visibility:hidden;">
+    <!-- the view or "page"; select it as the "home" screen -->
+    <div id="settings" data-dojo-type="dojox/mobile/View" data-dojo-props="selected:true">
+        <!-- a sample heading -->
+        <h1 data-dojo-type="dojox/mobile/Heading">Inicio</h1>
+        <!-- a rounded rectangle list container -->
+        <ul data-dojo-type="dojox/mobile/RoundRectList">
+            <!-- list item with an icon containing a switch -->
+            <li data-dojo-type="dojox/mobile/ListItem"  data-dojo-props="icon:'{{STATIC_URL}}images/icon-1.png'" >Catalogo de articulos
+            <!-- the switch -->       
+            </li>
+            <!-- list item with an icon that slides this view away and then loads another page -->
+            <li data-dojo-type="dojox/mobile/ListItem"
+        data-dojo-props="icon:'{{STATIC_URL}}images/icon-2.png'">Actualizacion de articulos</li>
+            <!-- list item with an icon that slides to a view called "general" -->
+            <li data-dojo-type="dojox/mobile/ListItem"
+    data-dojo-props="icon:'{{STATIC_URL}}images/icon-3.png', moveTo:'general'"
+        >Nuevo articulo</li>
+        </ul>
+    </div>
+    <!-- The "General" sub-page -->
+    <div id="general" data-dojo-type="dojox/mobile/View">
+        <!-- a sample heading -->
+         <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="back:'Inicio', moveTo:'settings'">Nuevo articulo</h1>
+            <div data-dojo-type="dojox/mobile/RoundRect">
+    <div data-dojo-type="dojox/mobile/FormLayout"
+         data-dojo-props="columns:'two'">
+        <div>
+            <label for="cnm">Codigo</label>
+            <fieldset>
+                <input type="text" id="cnm" data-dojo-type="dojox/mobile/TextBox"
+                       data-dojo-props="value:''">
+            </fieldset>
+        </div>
+        <div>
+            <label for="nomem">Nombre</label>
+            <fieldset>
+                <input type="text" id="nomem" data-dojo-type="dojox/mobile/TextBox"
+                       data-dojo-props="value:''">
+            </fieldset>
+        </div>
+         <div>
+            <label for="ticom">Tipo de codigo</label>
+            <fieldset>
+
+               <select data-dojo-type="dijit/form/DataList"
+                      data-dojo-props='id:"fruitDataList"'>
+                          <option>Apple</option>
+                          <option selected>Banana</option>
+                          <option>Orange</option>
+                    </select>
+                    <input type="text" data-dojo-type="dojox/mobile/ComboBox"
+                      data-dojo-props='list:"fruitDataList"'>
+
+            </fieldset>
+        </div>
+        
+    </div>
+    </div>
+    </div>
+    <!-- And let's add another view "About" barlobento alfrente de la bodega de icopr , lavadero de carro por ese callejon-->
+    
+</body>
+</html>

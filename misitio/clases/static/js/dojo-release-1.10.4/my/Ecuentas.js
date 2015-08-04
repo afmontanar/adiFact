@@ -2,7 +2,7 @@ define(["dojo/_base/declare", 'dijit/Dialog', 'dijit/form/TextBox','dojo/store/M
 	
   return declare(null, {
 	constructor: function(ContentPane){
-	  this.estadoCuenta = new Dialog({
+	    this.estadoCuenta = new Dialog({
 	    title: "Estado de cuentas",
 	    content: "<form>"+
 	       			"<legend style='font-weight: bold;'>Estado de cuentas</legend>"+
@@ -107,189 +107,189 @@ define(["dojo/_base/declare", 'dijit/Dialog', 'dijit/form/TextBox','dojo/store/M
 		      			"<input type='text' name='fechavecp' value='' id='fechavecp'></input>"+
 
 		      			"<div/>",
-		      style:"height:50%; background-color: #efefef;border: 1px solid #b5bcc7;"
+		      style:"width: 750px; height:300px; background-color: #efefef;border: 1px solid #b5bcc7;"
 	  }, "eca").startup();
 				
 	var codiec = new dijit.form.TextBox({
 	            name: "codiec",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Codigo",
-	            style: "width: 10em;"
+	            style: "width: 10%;"
 	        }, "codiec");
 
 	var nomart = new dijit.form.TextBox({
 	            name: "nomart",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Nombre de articulo",
-	            style: "width: 24em;"
+	            style: "width: 24%;"
 	        }, "nomart");
 
 	var codiecp = new dijit.form.TextBox({
 	            name: "codiecp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Codigo plu",
-	            style: "width: 12em;"
+	            style: "width: 12%;"
 	        }, "codiecp");
 
 	var nomcp = new dijit.form.TextBox({
 	            name: "nomcp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Nombre plu",
-	            style: "width: 24em;"
+	            style: "width: 24%;"
 	        }, "nomcp");
 
 	var gpcp = new dijit.form.TextBox({
 	            name: "gpcp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Grupo/Linea",
-	            style: "width: 18em;"
+	            style: "width: 18%;"
 	        }, "gpcp");
 
 	var locacp = new dijit.form.TextBox({
 	            name: "locacp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Localizacion",
-	            style: "width: 18em;"
+	            style: "width: 18%;"
 	        }, "locacp");
 
 	var refecp = new dijit.form.TextBox({
 	            name: "refecp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Referencia",
-	            style: "width: 16em;"
+	            style: "width: 16%;"
 	        }, "refecp");
 
 	var auincp = new dijit.form.TextBox({
 	            name: "auincp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Auxiliar de inventarios",
-	            style: "width: 16em;"
+	            style: "width: 16%;"
 	        }, "auincp");
 
 	var tipncp = new dijit.form.TextBox({
 	            name: "tipncp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Tipo de codigo",
-	            style: "width: 16em;"
+	            style: "width: 16%;"
 	        }, "tipncp");
 
 	var cuencp = new dijit.form.TextBox({
 	            name: "cuencp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Cuenta de ingresos",
-	            style: "width: 15em;"
+	            style: "width: 15%;"
 	        }, "cuencp");
 
 	var desncp = new dijit.form.TextBox({
 	            name: "desncp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Descripcion Apida",
-	            style: "width: 16em;"
+	            style: "width: 16%;"
 	        }, "desncp");
 
 	var costvncp = new dijit.form.TextBox({
 	            name: "costvncp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Costo de venta",
-	            style: "width: 18em;"
+	            style: "width: 18%;"
 	        }, "costvncp");
 
 	var estncp = new dijit.form.TextBox({
 	            name: "estncp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Estado",
-	            style: "width: 18em;"
+	            style: "width: 18%;"
 	        }, "estncp");
 
 	var intcncp = new dijit.form.TextBox({
 	            name: "intcncp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Interface contable",
-	            style: "width: 18em;"
+	            style: "width: 18%;"
 	        }, "intcncp");
 
 	var ivacncp = new dijit.form.TextBox({
 	            name: "ivacncp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Iva ventas",
-	            style: "width: 17em;"
+	            style: "width: 17%;"
 	        }, "ivacncp");
 
 	var ultcostcp = new dijit.form.TextBox({
 	            name: "ultcostcp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Ultimo costo",
-	            style: "width: 17em;"
+	            style: "width: 17%;"
 	        }, "ultcostcp");
 
 	var tipucp = new dijit.form.TextBox({
 	            name: "tipucp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Tipo de unidad",
-	            style: "width: 17em;"
+	            style: "width: 17%;"
 	        }, "tipucp");
 
 	var costprocp = new dijit.form.TextBox({
 	            name: "costprocp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Costo promedio",
-	            style: "width: 15em;"
+	            style: "width: 15%;"
 	        }, "costprocp");
 
 	var pivacp = new dijit.form.TextBox({
 	            name: "pivacp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "%Iva",
-	            style: "width: 18em;"
+	            style: "width: 18%;"
 	        }, "pivacp");
 
 	var prevent1cp = new dijit.form.TextBox({
 	            name: "prevent1cp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Precio de venta 1",
-	            style: "width: 18em;"
+	            style: "width: 18%;"
 	        }, "prevent1cp");
 
 	var pordesccp = new dijit.form.TextBox({
 	            name: "pordesccp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "% Dto Facturacion",
-	            style: "width: 16em;"
+	            style: "width: 16%;"
 	        }, "pordesccp");
 
 	var prevent2cp = new dijit.form.TextBox({
 	            name: "prevent2cp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Precio de venta 2",
-	            style: "width: 16em;"
+	            style: "width: 16%;"
 	        }, "prevent2cp");
 
 	var tipecp = new dijit.form.TextBox({
 	            name: "tipecp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Tipo de empaque",
-	            style: "width: 16em;"
+	            style: "width: 16%;"
 	        }, "tipecp");
 
 	var prevent3cp = new dijit.form.TextBox({
 	            name: "prevent3cp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Precio de venta 3",
-	            style: "width: 16em;"
+	            style: "width: 16%;"
 	        }, "prevent3cp");
 
 	var uniporecp = new dijit.form.TextBox({
 	            name: "uniporecp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Unidades X Empaque",
-	            style: "width: 14em;"
+	            style: "width: 14%;"
 	        }, "uniporecp");
 
 	var fechavecp = new dijit.form.TextBox({
 	            name: "fechavecp",
 	            value: "" /* no or empty value! */,
 	            placeHolder: "Fecha vencimiento",
-	            style: "width: 14em;"
+	            style: "width: 14%;"
 	        }, "fechavecp");
 
 	
@@ -333,7 +333,7 @@ define(["dojo/_base/declare", 'dijit/Dialog', 'dijit/form/TextBox','dojo/store/M
 		      			"<input type='text' name='sadoact1' value='' id='sadoact1'></input>"+
 		      			"<span data-dojo-type='dijit/ToolbarSeparator'></span>"+
 		      			"<div/>",
-		      style:"height:50%; background-color: #efefef;border: 1px solid #b5bcc7;"
+		      style:"width: 750px; height:200px;background-color: #efefef;border: 1px solid #b5bcc7;"
 	  }, "peb").startup();
 
 	var bode1 = new dijit.form.TextBox({
